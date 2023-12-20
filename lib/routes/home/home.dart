@@ -6,7 +6,6 @@ import 'package:mediboard/routes/home/widgets/iconitem1_item_widget.dart';
 import 'package:mediboard/routes/home/widgets/recentorders_item_widget.dart';
 import 'package:mediboard/routes/home/widgets/userprofile3_item_widget.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import '../../widgets/appBar/appbar_title_iconbutton.dart';
 import '../../widgets/appBar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
@@ -21,7 +20,7 @@ class Home extends StatefulWidget {
 }
 
 int sliderIndex = 1;
-final GlobalKey<AnimatedCircularChartState> _chartKey = new GlobalKey<AnimatedCircularChartState>();
+final GlobalKey<AnimatedCircularChartState> _chartKey = GlobalKey<AnimatedCircularChartState>();
 
 class _HomeState extends State<Home> {
   @override
@@ -79,6 +78,7 @@ class _HomeState extends State<Home> {
                       _buildRecentOrders(context),
                       const SizedBox(height: 48),
                       const Text(
+                        textAlign: TextAlign.left,
                         "Active medications",
                         style: TextStyle(
                           color: Color(0XFF111826),
@@ -93,7 +93,7 @@ class _HomeState extends State<Home> {
                         height: 8,
                         child: AnimatedSmoothIndicator(
                           activeIndex: sliderIndex,
-                          count: 1,
+                          count: 3,
                           axisDirection: Axis.horizontal,
                           effect: const ScrollingDotsEffect(
                             spacing: 16,
@@ -148,64 +148,9 @@ class _HomeState extends State<Home> {
   }
 }
 
-PreferredSizeWidget _buildAppBar(BuildContext context) {
-  return CustomAppBar(
-    height: 61,
-    centerTitle: true,
-    title: AppbarTitleIconbutton(
-      imagePath: "assets/img_television",
-    ),
-    actions: [
-      Container(
-        height: 30.309998,
-        width: 27,
-        margin: EdgeInsets.fromLTRB(13, 11, 13, 19),
-        child: Stack(
-          alignment: Alignment.topRight,
-          children: [
-            CustomImageView(
-              imagePath: "assets/img_bell",
-              height: 24,
-              width: 24,
-              alignment: Alignment.bottomLeft,
-              margin: const EdgeInsets.only(
-                top: 6,
-                right: 3,
-              ),
-            ),
-            Align(
-              alignment: Alignment.topRight,
-              child: Container(
-                height: 8,
-                width: 8,
-                margin: const EdgeInsets.only(
-                  left: 19,
-                  bottom: 22,
-                ),
-                decoration: BoxDecoration(
-                  color: const Color(0XFF22C55E),
-                  borderRadius: BorderRadius.circular(
-                    4,
-                  ),
-                  border: Border.all(
-                    color: Color(0XFFDC2626).withOpacity(1),
-                    width: 2,
-                    strokeAlign: BorderSide.strokeAlignOutside,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    ],
-    styleType: Style.bgShadow,
-  );
-}
-
 Widget _buildUserProfile(BuildContext context) {
   return Container(
-    padding: EdgeInsets.symmetric(horizontal: 42),
+    padding: const EdgeInsets.symmetric(horizontal: 42),
     child: Column(
       children: [
         Padding(
@@ -270,104 +215,6 @@ Widget _buildUserProfile(BuildContext context) {
             fontSize: 24.0,
           ),
         )
-        // const SizedBox(
-        //   height: 285,
-        //   width: 286,
-        //   child: Stack(
-        //     alignment: Alignment.center,
-        //     children: [
-        //       Align(
-        //         alignment: Alignment.center,
-        //         child: SizedBox(
-        //           height: 285,
-        //           width: 286,
-        //           child: Stack(
-        //             alignment: Alignment.center,
-        //             children: [
-        //               Align(
-        //                 alignment: Alignment.center,
-        //                 child: SizedBox(
-        //                   height: 285,
-        //                   width: 285,
-        //                   child: CircularProgressIndicator(
-        //                     value: 0.5,
-        //                     backgroundColor: Color(0XFFF472B6),
-        //                     color: Color(0XFF22D3EE),
-        //                   ),
-        //                 ),
-        //               ),
-        //               Align(
-        //                 alignment: Alignment.center,
-        //                 child: SizedBox(
-        //                   height: 285,
-        //                   width: 285,
-        //                   child: CircularProgressIndicator(
-        //                     value: 0.5,
-        //                     backgroundColor: Color(0XFFEAB308),
-        //                     color: Color(0XFF22D3EE),
-        //                   ),
-        //                 ),
-        //               ),
-        //               Align(
-        //                 alignment: Alignment.center,
-        //                 child: SizedBox(
-        //                   height: 285,
-        //                   width: 285,
-        //                   child: CircularProgressIndicator(
-        //                     value: 0.5,
-        //                     backgroundColor: Color(0XFF818CF8),
-        //                     color: Color(0XFF22D3EE),
-        //                   ),
-        //                 ),
-        //               ),
-        //               Align(
-        //                 alignment: Alignment.center,
-        //                 child: SizedBox(
-        //                   height: 285,
-        //                   width: 285,
-        //                   child: CircularProgressIndicator(
-        //                     value: 0.5,
-        //                     backgroundColor: Color(0XFFFB7185),
-        //                     color: Color(0XFF22D3EE),
-        //                   ),
-        //                 ),
-        //               ),
-        //             ],
-        //           ),
-        //         ),
-        //       ),
-        //       Align(
-        //         alignment: Alignment.center,
-        //         child: Padding(
-        //           padding: EdgeInsets.only(
-        //             left: 99,
-        //             right: 103,
-        //           ),
-        //           child: Column(
-        //             mainAxisSize: MainAxisSize.min,
-        //             children: [
-        //               Text(
-        //                 "Upcoming",
-        //                 style: TextStyle(
-        //                   color: Color(0XFF111826),
-        //                   fontSize: 15,
-        //                 ),
-        //               ),
-        //               Text(
-        //                 "5 Activities",
-        //                 style: TextStyle(
-        //                   color: Color(0XFF111826),
-        //                   fontSize: 15,
-        //                   fontWeight: FontWeight.w700,
-        //                 ),
-        //               ),
-        //             ],
-        //           ),
-        //         ),
-        //       ),
-        //     ],
-        //   ),
-        // ),
       ],
     ),
   );
@@ -395,27 +242,78 @@ final List<GridItemData> gridItems = [
 ];
 
 Widget _buildRecentOrders(BuildContext context) {
+
+  List<OrderData> orders = getOrders();
+
   return ListView.separated(
-    physics: NeverScrollableScrollPhysics(),
+
+    physics: const NeverScrollableScrollPhysics(),
     shrinkWrap: true,
-    separatorBuilder: (
-        context,
-        index,
-        ) {
-      return SizedBox(
-        height: 1,
+    itemCount: orders.length,
+    itemBuilder: (context, index) {
+      OrderData order = orders[index];
+
+      return RecentordersItemWidget(
+        imagePath: order.imagePath,
+        title: order.title,
+        quantity: order.quantity,
+        colour: order.colour,
       );
     },
-    itemCount: 5,
-    itemBuilder: (context, index) {
-      return RecentordersItemWidget();
+    separatorBuilder: (context, index) {
+      return const SizedBox(
+        height: 1,
+      );
     },
   );
 }
 
+class OrderData {
+  final String imagePath;
+  final String title;
+  final String quantity;
+  final Color colour;
+
+  OrderData({
+    required this.imagePath,
+    required this.title,
+    required this.quantity,
+    required this.colour,
+  });
+}
+
+List<OrderData> getOrders() {
+  return [
+    OrderData(
+      imagePath: "assets/visits.png",
+      title: "Future Visits 1",
+      quantity: "1",
+      colour: const Color(0XFF22D3EE).withOpacity(1)
+    ),
+    OrderData(
+      imagePath: "assets/medication.png",
+      title: "Future medication",
+      quantity: "2",
+      colour: const Color(0XFFEAB308).withOpacity(1)
+    ),
+    OrderData(
+      imagePath: "assets/tests.png",
+      title: "Future Lab tests",
+      quantity: "2",
+      colour: const Color(0XFFFB7185).withOpacity(1)
+    ),
+    OrderData(
+      imagePath: "assets/reports.png",
+      title: "Reports",
+      quantity: "2",
+      colour: Colors.purpleAccent.withOpacity(1)
+    ),
+  ];
+}
+
 Widget _buildActiveMedications(BuildContext context) {
   return Padding(
-    padding: EdgeInsets.only(left: 12),
+    padding: const EdgeInsets.only(left: 12),
     child: CarouselSlider.builder(
       options: CarouselOptions(
         height: 152,

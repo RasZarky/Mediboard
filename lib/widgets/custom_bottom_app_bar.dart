@@ -20,6 +20,18 @@ class CustomBottomAppBarState extends State<CustomBottomAppBar> {
         type: BottomBarEnum.Home,
         isSelected: true),
     BottomMenuModel(
+      icon: "assets/star.png",
+      activeIcon: "assets/star.png",
+      title: "For you",
+      type: BottomBarEnum.foryou,
+    ),
+    BottomMenuModel(
+      icon: "assets/trending-up.png",
+      activeIcon: "assets/trending-up.png",
+      title: "Reports",
+      type: BottomBarEnum.reports,
+    ),
+    BottomMenuModel(
       icon: "assets/img_nav_profile.svg",
       activeIcon: "assets/img_nav_profile.svg",
       title: "Profile",
@@ -102,6 +114,8 @@ class CustomBottomAppBarState extends State<CustomBottomAppBar> {
 
 enum BottomBarEnum {
   Home,
+  foryou,
+  reports,
   Profile,
 }
 

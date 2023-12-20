@@ -1,40 +1,41 @@
 import 'package:flutter/material.dart';
-
 import '../../../widgets/custom_image_view.dart';
 
 // ignore: must_be_immutable
 class RecentordersItemWidget extends StatelessWidget {
-  const RecentordersItemWidget({Key? key})
-      : super(
-          key: key,
-        );
+  final String imagePath;
+  final String title;
+  final String quantity;
+  final Color colour;
+
+  const RecentordersItemWidget({
+    Key? key,
+    required this.imagePath,
+    required this.title,
+    required this.quantity,
+    required this.colour,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: 12,
         vertical: 4,
       ),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: BorderRadius.circular(8)
       ),
       child: Container(
-        padding: EdgeInsets.fromLTRB(8, 16, 8, 15),
+        padding: const EdgeInsets.fromLTRB(8, 16, 8, 15),
         decoration: BoxDecoration(
-          color: Color(0XFFDC2626).withOpacity(1),
-          border: Border(
-            bottom: BorderSide(
-              color: Color(0XFFF1F5F9),
-              width: 1,
-            ),
-          ),
+          color: const Color(0X7AFFFFFF).withOpacity(1),
           boxShadow: [
             BoxShadow(
-              color: Color(0XFF111827).withOpacity(0.06),
+              color: const Color(0XFF000000).withOpacity(0.07),
               spreadRadius: 2,
               blurRadius: 2,
-              offset: Offset(
+              offset: const Offset(
                 0,
                 1,
               ),
@@ -45,35 +46,37 @@ class RecentordersItemWidget extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             CustomImageView(
-              imagePath: "assets/img_user_cyan_400.svg",
+              imagePath: imagePath,
               height: 32,
               width: 32,
             ),
-            const Padding(
-              padding: EdgeInsets.only(
+            Padding(
+              padding: const EdgeInsets.only(
                 left: 8,
                 top: 7,
                 bottom: 7,
               ),
               child: Text(
-                "Future Visits",
+                title,
               ),
             ),
-            Spacer(),
+            const Spacer(),
             Container(
               width: 24,
-              margin: EdgeInsets.symmetric(vertical: 4),
-              padding: EdgeInsets.symmetric(
+              margin: const EdgeInsets.symmetric(vertical: 4),
+              padding: const EdgeInsets.symmetric(
                 horizontal: 8,
                 vertical: 3,
               ),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
+                color: colour,
+                borderRadius: BorderRadius.circular(12)
               ),
               child: Text(
-                "1",
+                quantity,
                 style: TextStyle(
-                  color: Color(0XFFDC2626).withOpacity(1),
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold
                 ),
               ),
             ),
@@ -81,7 +84,7 @@ class RecentordersItemWidget extends StatelessWidget {
               imagePath: "assets/img_arrow_down_gray_600_01.svg",
               height: 16,
               width: 16,
-              margin: EdgeInsets.fromLTRB(8, 8, 4, 8),
+              margin: const EdgeInsets.fromLTRB(8, 8, 4, 8),
             ),
           ],
         ),

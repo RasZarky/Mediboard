@@ -36,7 +36,7 @@ class MedicationlistItemWidget extends StatelessWidget {
               fontSize: 12,
             ),
           ),
-          SizedBox(height: 60),
+          SizedBox(height: 40),
           Row(
             children: [
               CustomIconButton(

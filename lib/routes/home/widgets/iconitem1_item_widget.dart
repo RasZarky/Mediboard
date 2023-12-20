@@ -59,6 +59,8 @@ class Iconitem1ItemWidget extends StatelessWidget {
           padding: EdgeInsets.only(left: 16),
           child: Text(
             label,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
             style: TextStyle(
               color: Color(0XFF111826),
             ),
