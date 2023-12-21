@@ -133,6 +133,20 @@ class _HomeState extends State<Home> {
         ),
         bottomNavigationBar: _buildBottomAppBar(context),
         floatingActionButton: CustomFloatingButton(
+          onTap: (){
+            showModalBottomSheet(
+                context: context,
+                builder: (BuildContext context) {
+              // You can replace this with your own widget for the bottom sheet content
+              return Container(
+                height: 200,
+                child: const Center(
+                  child: Text('This is your bottom sheet content'),
+                ),
+              );
+            }
+            );
+          },
           height: 60,
           width: 60,
           backgroundColor: const Color(0XFF7C3AED),
@@ -640,5 +654,6 @@ Widget _buildUserProfileList(BuildContext context) {
 Widget _buildBottomAppBar(BuildContext context) {
   return CustomBottomAppBar(
     onChanged: (BottomBarEnum type) {},
+    context: context,
   );
 }

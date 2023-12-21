@@ -105,6 +105,30 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ],
           ),
         );
+      case Style.bgGradientblack:
+        return Container(
+          height: 243,
+          width: double.maxFinite,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                "assets/img_frame_819_1.png",
+              ),
+              fit: BoxFit.cover,
+            ),
+          ),
+          foregroundDecoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: const Alignment(0.5, 0),
+              end: const Alignment(0.5, 1),
+              colors: [
+                const Color(0XFF000000).withOpacity(0),
+                const Color(0XFF000000).withOpacity(0.65),
+              ],
+            ),
+          ),
+        );
+
       default:
         return null;
     }
@@ -115,4 +139,5 @@ enum Style {
   bgOutline,
   bgShadow,
   bgShadow_1,
+  bgGradientblack,
 }

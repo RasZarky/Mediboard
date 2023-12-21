@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:mediboard/routes/forYou/for_you_page.dart';
+import 'package:mediboard/routes/home/home.dart';
 
 import 'custom_image_view.dart';
 
 class CustomBottomAppBar extends StatefulWidget {
-  CustomBottomAppBar({this.onChanged});
+  CustomBottomAppBar({this.onChanged, required this.context});
 
   Function(BottomBarEnum)? onChanged;
+  final BuildContext context;
 
   @override
   CustomBottomAppBarState createState() => CustomBottomAppBarState();
@@ -17,8 +20,7 @@ class CustomBottomAppBarState extends State<CustomBottomAppBar> {
         icon: "assets/img_nav_home.svg",
         activeIcon: "assets/img_nav_home.svg",
         title: "Home",
-        type: BottomBarEnum.Home,
-        isSelected: true),
+        type: BottomBarEnum.Home,),
     BottomMenuModel(
       icon: "assets/star.png",
       activeIcon: "assets/star.png",
@@ -57,7 +59,7 @@ class CustomBottomAppBarState extends State<CustomBottomAppBar> {
                   }
                   bottomMenuList[index].isSelected = true;
                   widget.onChanged?.call(bottomMenuList[index].type);
-                  setState(() {});
+                  navigateToPage(widget.context, bottomMenuList[index].type);
                 },
                 child: bottomMenuList[index].isSelected
                     ? Column(
@@ -160,5 +162,38 @@ class DefaultWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+void navigateToPage(BuildContext context, BottomBarEnum type) {
+  switch (type) {
+    case BottomBarEnum.Home:
+    // Navigate to Home page
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const Home()),
+      );
+      break;
+    case BottomBarEnum.foryou:
+    // Navigate to For You page
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const ForYouPage()),
+      );
+      break;
+    case BottomBarEnum.reports:
+    // Navigate to Reports page
+    //   Navigator.push(
+    //     context,
+    //     MaterialPageRoute(builder: (context) => ReportsPage()),
+    //   );
+      break;
+    case BottomBarEnum.Profile:
+    // Navigate to Profile page
+    //   Navigator.push(
+    //     context,
+    //     MaterialPageRoute(builder: (context) => ProfilePage()),
+    //   );
+      break;
   }
 }
