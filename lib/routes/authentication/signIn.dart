@@ -149,12 +149,12 @@ class _SignInState extends State<SignIn> {
                       ),
                       backgroundColor: Colors.purple,
                     ),
-                    child: const Text(
+                    child: Text(
                       "Sign In",
                       style: TextStyle(
-                        fontSize: 22,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
+                          color: const Color(0X7AFFFFFF).withOpacity(1),
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500
                       ),
                     ),
 

@@ -6,6 +6,7 @@ import 'package:mediboard/routes/home/widgets/iconitem1_item_widget.dart';
 import 'package:mediboard/routes/home/widgets/recentorders_item_widget.dart';
 import 'package:mediboard/routes/home/widgets/userprofile3_item_widget.dart';
 import 'package:mediboard/routes/modal_actions_screen/modal_actions_screen.dart';
+import 'package:mediboard/routes/notifications_screen/notifications_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../widgets/appBar/appbar_title_iconbutton.dart';
 import '../../widgets/appBar/custom_app_bar.dart';
@@ -58,14 +59,22 @@ class _HomeState extends State<Home> {
                             alignment: Alignment.topLeft,
                             child: Padding(
                               padding: const EdgeInsets.only(right: 16),
-                              child: CustomImageView(
-                                imagePath: "assets/img_bell.svg",
-                                height: 24,
-                                width: 24,
-                                alignment: Alignment.bottomLeft,
-                                margin: const EdgeInsets.only(
-                                  top: 6,
-                                  right: 3,
+                              child: GestureDetector(
+                                onTap: (){
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => const NotificationsScreen()),
+                                  );
+                                },
+                                child: CustomImageView(
+                                  imagePath: "assets/img_bell.svg",
+                                  height: 24,
+                                  width: 24,
+                                  alignment: Alignment.bottomLeft,
+                                  margin: const EdgeInsets.only(
+                                    top: 6,
+                                    right: 3,
+                                  ),
                                 ),
                               ),
                             ),
