@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mediboard/routes/modal_actions_screen/modal_actions_screen.dart';
 import 'package:mediboard/widgets/appBar/appbar_leading_image.dart';
 import 'package:mediboard/widgets/appBar/appbar_title.dart';
 import 'package:mediboard/widgets/appBar/appbar_trailing_image.dart';
@@ -36,6 +37,17 @@ class ProfileScreen extends StatelessWidget {
                 ])),
             bottomNavigationBar: _buildNav(context),
             floatingActionButton: CustomFloatingButton(
+                onTap: (){
+                  showModalBottomSheet(
+                      useSafeArea: true,
+                      isScrollControlled: true,
+                      context: context,
+                      builder: (BuildContext context) {
+                        // You can replace this with your own widget for the bottom sheet content
+                        return const ModalActionsScreen();
+                      }
+                  );
+                },
                 height: 60,
                 width: 60,
                 backgroundColor: const Color(0XFF7C3AED),
@@ -68,7 +80,7 @@ class ProfileScreen extends StatelessWidget {
                   margin:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 18))
             ],
-            styleType: Style.bgShadow));
+            ));
   }
 
 

@@ -3,6 +3,7 @@ import 'package:mediboard/routes/forYou/widgets/article3_item_widget.dart';
 import 'package:mediboard/routes/forYou/widgets/article4_item_widget.dart';
 import 'package:mediboard/routes/forYou/widgets/chips6_item_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:mediboard/routes/modal_actions_screen/modal_actions_screen.dart';
 import 'package:mediboard/widgets/appBar/appbar_title.dart';
 import 'package:mediboard/widgets/appBar/appbar_trailing_image.dart';
 import 'package:mediboard/widgets/appBar/custom_app_bar.dart';
@@ -167,6 +168,17 @@ class ForYouPageState extends State<ForYouPage> with TickerProviderStateMixin {
               context: context,
             ),
             floatingActionButton: CustomFloatingButton(
+                onTap: (){
+                  showModalBottomSheet(
+                      useSafeArea: true,
+                      isScrollControlled: true,
+                      context: context,
+                      builder: (BuildContext context) {
+                        // You can replace this with your own widget for the bottom sheet content
+                        return const ModalActionsScreen();
+                      }
+                  );
+                },
                 height: 60,
                 width: 60,
                 backgroundColor: const Color(0XFF7C3AED),

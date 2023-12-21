@@ -5,6 +5,7 @@ import 'package:mediboard/routes/home/widgets/activemedications_item_widget.dart
 import 'package:mediboard/routes/home/widgets/iconitem1_item_widget.dart';
 import 'package:mediboard/routes/home/widgets/recentorders_item_widget.dart';
 import 'package:mediboard/routes/home/widgets/userprofile3_item_widget.dart';
+import 'package:mediboard/routes/modal_actions_screen/modal_actions_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../widgets/appBar/appbar_title_iconbutton.dart';
 import '../../widgets/appBar/custom_app_bar.dart';
@@ -135,15 +136,12 @@ class _HomeState extends State<Home> {
         floatingActionButton: CustomFloatingButton(
           onTap: (){
             showModalBottomSheet(
+                useSafeArea: true,
+                isScrollControlled: true,
                 context: context,
                 builder: (BuildContext context) {
               // You can replace this with your own widget for the bottom sheet content
-              return Container(
-                height: 200,
-                child: const Center(
-                  child: Text('This is your bottom sheet content'),
-                ),
-              );
+              return const ModalActionsScreen();
             }
             );
           },

@@ -40,23 +40,50 @@ class Iconitem1ItemWidget extends StatelessWidget {
                     horizontal: 7,
                     vertical: 3,
                   ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
+                  decoration: count == null ? const BoxDecoration()
+                      : BoxDecoration(
+                    color: const Color(0XFFEF4444),
+                    border: Border.all(
+                      color: const Color(0X7AFFFFFF).withOpacity(1),
+                      width: 1,
+                    ),
+                    borderRadius:
+                    BorderRadius.circular(12),
                   ),
                   child: Text(
-                    count == null ? "" : count.toString(),
+                      count == null ? "" : count.toString(),
                     style: TextStyle(
-                      color: const Color(0XFFDC2626).withOpacity(1),
+                      color: const Color(0X7AFFFFFF).withOpacity(1),
                       fontWeight: FontWeight.w700,
                     ),
                   ),
                 ),
               ),
+              // Align(
+              //   alignment: Alignment.topRight,
+              //   child: Container(
+              //     width: 24,
+              //     padding: const EdgeInsets.symmetric(
+              //       horizontal: 7,
+              //       vertical: 3,
+              //     ),
+              //     decoration: BoxDecoration(
+              //       borderRadius: BorderRadius.circular(12),
+              //     ),
+              //     child: Text(
+              //       count == null ? "" : count.toString(),
+              //       style: TextStyle(
+              //         color: const Color(0XFFDC2626).withOpacity(1),
+              //         fontWeight: FontWeight.w700,
+              //       ),
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
          Padding(
-          padding: EdgeInsets.only(left: 16),
+          padding: const EdgeInsets.only(left: 16),
           child: Text(
             label,
             maxLines: 1,
