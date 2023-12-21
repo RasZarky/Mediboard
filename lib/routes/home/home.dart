@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
                                 onTap: (){
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const NotificationsScreen()),
+                                    MaterialPageRoute(builder: (context) => NotificationsScreen()),
                                   );
                                 },
                                 child: CustomImageView(

@@ -1,11 +1,25 @@
 import 'package:mediboard/widgets/appBar/appbar_leading_image.dart';
 import 'package:mediboard/widgets/appBar/appbar_title.dart';
 import 'package:mediboard/widgets/appBar/custom_app_bar.dart';
+import 'package:mediboard/widgets/custom_image_view.dart';
 import '../notifications_screen/widgets/notificationcard_item_widget.dart';
 import 'package:flutter/material.dart';
 
-class NotificationsScreen extends StatelessWidget {
-  const NotificationsScreen({Key? key}) : super(key: key);
+class NotificationsScreen extends StatefulWidget {
+   NotificationsScreen({Key? key}) : super(key: key);
+
+  @override
+  State<NotificationsScreen> createState() => _NotificationsScreenState();
+}
+
+class _NotificationsScreenState extends State<NotificationsScreen> with TickerProviderStateMixin {
+  late TabController tabviewController;
+
+   @override
+   void initState() {
+     super.initState();
+     tabviewController = TabController(length: 6, vsync: this);
+   }
 
   @override
   Widget build(BuildContext context) {
@@ -44,56 +58,15 @@ class NotificationsScreen extends StatelessWidget {
               decoration: BoxDecoration(
                color: const Color(0X7AFFFFFF).withOpacity(1),
               ),
-              child: Container(
-                  width: double.maxFinite,
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  decoration: BoxDecoration(
-                   color: const Color(0X7AFFFFFF).withOpacity(1),
-                   boxShadow: const [
-                    BoxShadow(
-                     color: Color(0X4C7F7F7F),
-                     spreadRadius: 2,
-                     blurRadius: 2,
-                     offset: Offset(
-                      0,
-                      2,
-                     ),
-                    ),
-                   ],
-                  ),
-                  child: Row(children: [
-                    Container(
-                        width: 18,
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        decoration: BoxDecoration(
-                         color: const Color(0X7AFFFFFF).withOpacity(1),
-                         boxShadow: const [
-                          BoxShadow(
-                           color: Color(0XFF7C3BE7),
-                           spreadRadius: 2,
-                           blurRadius: 2,
-                           offset: Offset(
-                            0,
-                            2,
-                           ),
-                          ),
-                         ],
-                        ),
-                        child: Text("All",
-                            style: TextStyle(
-                                color: const Color(0X7AFFFFFF).withOpacity(1),
-                                fontSize: 15,
-                                fontWeight: FontWeight.w500
-                            ))),
-                    const Padding(
-                        padding: EdgeInsets.only(
-                            left: 40, top: 10, bottom: 10),
-                        child: Text("Unread",
-                            style: TextStyle(
-                             color: Color(0XFF6B7280),
-                             fontSize: 15,
-                            )))
-                  ])))
+              child: TabBar(
+                  controller: tabviewController,
+                  isScrollable: true,
+                  tabs: const [
+
+                    Tab(child: Text("All")),
+                    Tab(child: Text("Unread")),
+
+                  ])),
         ]));
   }
 
