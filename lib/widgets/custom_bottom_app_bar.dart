@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mediboard/routes/forYou/for_you_page.dart';
 import 'package:mediboard/routes/home/home.dart';
+import 'package:mediboard/routes/profile/profile_screen.dart';
 
 import 'custom_image_view.dart';
 
@@ -168,14 +169,12 @@ class DefaultWidget extends StatelessWidget {
 void navigateToPage(BuildContext context, BottomBarEnum type) {
   switch (type) {
     case BottomBarEnum.Home:
-    // Navigate to Home page
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const Home()),
       );
       break;
     case BottomBarEnum.foryou:
-    // Navigate to For You page
       Navigator.push(
         context,
         MaterialPageRoute(builder: (context) => const ForYouPage()),
@@ -189,11 +188,10 @@ void navigateToPage(BuildContext context, BottomBarEnum type) {
     //   );
       break;
     case BottomBarEnum.Profile:
-    // Navigate to Profile page
-    //   Navigator.push(
-    //     context,
-    //     MaterialPageRoute(builder: (context) => ProfilePage()),
-    //   );
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ProfileScreen()),
+      );
       break;
   }
 }
