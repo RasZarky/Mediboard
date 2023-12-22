@@ -74,7 +74,7 @@ class RecentordersItemWidget extends StatelessWidget {
               ),
               child: Text(
                 quantity,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold
                 ),

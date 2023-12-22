@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  CustomAppBar({
+  const CustomAppBar({
     Key? key,
     this.height,
     this.styleType,
@@ -72,7 +72,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           height: 61,
           width: double.maxFinite,
           decoration: BoxDecoration(
-            color: Color(0XFFDC2626).withOpacity(1),
+            color: const Color(0XFFDC2626).withOpacity(1),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.06),

@@ -1,12 +1,11 @@
+import 'package:mediboard/routes/notifications/widgets/notificationcard_item_widget.dart';
 import 'package:mediboard/widgets/appBar/appbar_leading_image.dart';
 import 'package:mediboard/widgets/appBar/appbar_title.dart';
 import 'package:mediboard/widgets/appBar/custom_app_bar.dart';
-import 'package:mediboard/widgets/custom_image_view.dart';
-import '../notifications_screen/widgets/notificationcard_item_widget.dart';
 import 'package:flutter/material.dart';
 
 class NotificationsScreen extends StatefulWidget {
-   NotificationsScreen({Key? key}) : super(key: key);
+   const NotificationsScreen({Key? key}) : super(key: key);
 
   @override
   State<NotificationsScreen> createState() => _NotificationsScreenState();
@@ -77,15 +76,39 @@ class _NotificationsScreenState extends State<NotificationsScreen> with TickerPr
              color: const Color(0X7AFFFFFF).withOpacity(1),
             ),
             child: ListView.separated(
-                physics: const BouncingScrollPhysics(),
-                shrinkWrap: true,
-                separatorBuilder: (context, index) {
-                  return const SizedBox(height: 1);
-                },
-                itemCount: 3,
-                itemBuilder: (context, index) {
-                  return const NotificationcardItemWidget();
-                })));
+              physics: const BouncingScrollPhysics(),
+              shrinkWrap: true,
+              separatorBuilder: (context, index) {
+                return const SizedBox(height: 1);
+              },
+              itemCount: 3,
+              itemBuilder: (context, index) {
+                /// Todo: Implement well
+                if (index == 0) {
+                  return const NotificationcardItemWidget(
+                    iconImagePath: "assets/img_warning_red_300.svg",
+                    title: "Test results are uploaded",
+                    description: "View your Blood Test results taken at Salus on Jul 27, 2023",
+                    timestamp: "20 minutes ago",
+                  );
+                } else if (index == 1) {
+                  return const NotificationcardItemWidget(
+                    iconImagePath: "assets/scan.png",
+                    title: "New Imaging Findings",
+                    description: "Your Bone Density Scan (DEXA) bone from Aug 1, 2023 is updated",
+                    timestamp: "7 hours ago",
+                  );
+                } else {
+                  return const NotificationcardItemWidget(
+                    iconImagePath: "assets/visit_summery.png",
+                    title: "Your visit summery is here!",
+                    description: "View the summary details from your visit at Dr. Blake at Jul 25, 2023",
+                    timestamp: "Feb 15 2023",
+                  );
+                }
+              },
+            )
+        ));
   }
 
   onTapArrowLeft(BuildContext context) {

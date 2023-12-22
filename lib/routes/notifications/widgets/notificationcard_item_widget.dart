@@ -2,10 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:mediboard/widgets/custom_image_view.dart';
 
 class NotificationcardItemWidget extends StatelessWidget {
-  const NotificationcardItemWidget({Key? key})
-      : super(
-          key: key,
-        );
+  final String iconImagePath;
+  final String title;
+  final String description;
+  final String timestamp;
+
+  const NotificationcardItemWidget({
+    Key? key,
+    required this.iconImagePath,
+    required this.title,
+    required this.description,
+    required this.timestamp,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +34,7 @@ class NotificationcardItemWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomImageView(
-            imagePath: "assets/img_warning_red_300.svg",
+            imagePath: iconImagePath,
             height: 40,
             width: 40,
             radius: BorderRadius.circular(
@@ -46,9 +54,9 @@ class NotificationcardItemWidget extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
-                    "Test results are uploaded",
-                    style: TextStyle(
+                  Text(
+                    title,
+                    style: const TextStyle(
                       color: Color(0XFF000000),
                     ),
                   ),
@@ -56,22 +64,15 @@ class NotificationcardItemWidget extends StatelessWidget {
                   SizedBox(
                     width: 284,
                     child: RichText(
-                      text: const TextSpan(
+                      text: TextSpan(
                         children: [
                           TextSpan(
-                            text:
-                                "View your Blood Test results taken at Salus on ",
-                            style: TextStyle(
+                            text: description,
+                            style: const TextStyle(
                               color: Color(0XFF64748A),
                               fontSize: 14,
                               fontFamily: 'Inter',
                               fontWeight: FontWeight.w400,
-                            ),
-                          ),
-                          TextSpan(
-                            text: "Jul 27, 2023 ",
-                            style: TextStyle(
-                              color: Color(0XFF64748A),
                             ),
                           ),
                         ],
@@ -80,9 +81,9 @@ class NotificationcardItemWidget extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 2),
-                  const Text(
-                    "20 minutes ago",
-                    style: TextStyle(
+                  Text(
+                    timestamp,
+                    style: const TextStyle(
                       color: Color(0XFF9CA3AF),
                       fontWeight: FontWeight.w500,
                     ),

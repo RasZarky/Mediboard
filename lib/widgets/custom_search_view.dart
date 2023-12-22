@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mediboard/widgets/custom_image_view.dart';
 
 class CustomSearchView extends StatelessWidget {
-  CustomSearchView({
+  const CustomSearchView({
     Key? key,
     this.alignment,
     this.width,

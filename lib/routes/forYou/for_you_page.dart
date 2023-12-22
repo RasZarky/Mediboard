@@ -51,7 +51,7 @@ class ForYouPageState extends State<ForYouPage> with TickerProviderStateMixin {
                   Container(
                       height: 30.309998,
                       width: 27,
-                      margin: EdgeInsets.only(left: 24, top: 11, right: 24),
+                      margin: const EdgeInsets.only(left: 24, top: 11, right: 24),
                       child: Stack(alignment: Alignment.topRight, children: [
                         CustomImageView(
                             imagePath: "assets/img_bookmark_gray_600.svg",
@@ -86,7 +86,7 @@ class ForYouPageState extends State<ForYouPage> with TickerProviderStateMixin {
               child: Column(
                 children: [
                   const SizedBox(height: 18),
-                  Container(
+                  SizedBox(
                       height: 32,
                       width: 378,
                       child: TabBar(

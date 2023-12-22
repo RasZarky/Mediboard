@@ -6,10 +6,8 @@ import 'package:mediboard/routes/home/widgets/iconitem1_item_widget.dart';
 import 'package:mediboard/routes/home/widgets/recentorders_item_widget.dart';
 import 'package:mediboard/routes/home/widgets/userprofile3_item_widget.dart';
 import 'package:mediboard/routes/modal_actions_screen/modal_actions_screen.dart';
-import 'package:mediboard/routes/notifications_screen/notifications_screen.dart';
+import 'package:mediboard/routes/notifications/notifications_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../../widgets/appBar/appbar_title_iconbutton.dart';
-import '../../widgets/appBar/custom_app_bar.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
 import '../../widgets/custom_image_view.dart';
@@ -63,7 +61,7 @@ class _HomeState extends State<Home> {
                                 onTap: (){
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => NotificationsScreen()),
+                                    MaterialPageRoute(builder: (context) => const NotificationsScreen()),
                                   );
                                 },
                                 child: CustomImageView(
@@ -352,7 +350,7 @@ Widget _buildActiveMedications(BuildContext context) {
       ),
       itemCount: 1,
       itemBuilder: (context, index, realIndex) {
-        return ActivemedicationsItemWidget();
+        return const ActivemedicationsItemWidget();
       },
     ),
   );
@@ -360,7 +358,7 @@ Widget _buildActiveMedications(BuildContext context) {
 
 Widget _buildTrackingMeasures(BuildContext context) {
   return Padding(
-    padding: EdgeInsets.symmetric(horizontal: 12),
+    padding: const EdgeInsets.symmetric(horizontal: 12),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -403,7 +401,7 @@ Widget _buildTrackingMeasures(BuildContext context) {
 
 Widget _buildUserProfileList(BuildContext context) {
   return Padding(
-    padding: EdgeInsets.only(left: 12),
+    padding: const EdgeInsets.only(left: 12),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -486,7 +484,7 @@ Widget _buildUserProfileList(BuildContext context) {
                                         ),
                                         decoration:
                                         BoxDecoration(
-                                          color: Color(0XFFFEF2F2),
+                                          color: const Color(0XFFFEF2F2),
                                           borderRadius: BorderRadius.circular(12),
                                         ),
                                         child: const Text(
@@ -636,19 +634,19 @@ Widget _buildUserProfileList(BuildContext context) {
           child: SizedBox(
             height: 192,
             child: ListView.separated(
-              padding: EdgeInsets.only(left: 8),
+              padding: const EdgeInsets.only(left: 8),
               scrollDirection: Axis.horizontal,
               separatorBuilder: (
                   context,
                   index,
                   ) {
-                return SizedBox(
+                return const SizedBox(
                   width: 8,
                 );
               },
               itemCount: 3,
               itemBuilder: (context, index) {
-                return Userprofile3ItemWidget();
+                return const Userprofile3ItemWidget();
               },
             ),
           ),

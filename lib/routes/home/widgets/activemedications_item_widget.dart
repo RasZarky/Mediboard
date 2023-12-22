@@ -18,13 +18,13 @@ class ActivemedicationsItemWidget extends StatelessWidget {
           context,
           index,
         ) {
-          return SizedBox(
+          return const SizedBox(
             width: 8,
           );
         },
         itemCount: 3,
         itemBuilder: (context, index) {
-          return MedicationlistItemWidget();
+          return const MedicationlistItemWidget();
         },
       ),
     );

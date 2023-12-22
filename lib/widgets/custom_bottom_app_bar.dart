@@ -6,7 +6,7 @@ import 'package:mediboard/routes/profile/profile_screen.dart';
 import 'custom_image_view.dart';
 
 class CustomBottomAppBar extends StatefulWidget {
-  CustomBottomAppBar({this.onChanged, required this.context});
+  CustomBottomAppBar({super.key, this.onChanged, required this.context});
 
   Function(BottomBarEnum)? onChanged;
   final BuildContext context;
@@ -45,7 +45,7 @@ class CustomBottomAppBarState extends State<CustomBottomAppBar> {
   @override
   Widget build(BuildContext context) {
     return BottomAppBar(
-      shape: CircularNotchedRectangle(),
+      shape: const CircularNotchedRectangle(),
       child: SizedBox(
         height: 20,
         child: Row(
@@ -143,6 +143,8 @@ class BottomMenuModel {
 }
 
 class DefaultWidget extends StatelessWidget {
+  const DefaultWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(

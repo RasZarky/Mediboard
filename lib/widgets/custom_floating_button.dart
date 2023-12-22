@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomFloatingButton extends StatelessWidget {
-  CustomFloatingButton({
+  const CustomFloatingButton({
     Key? key,
     this.alignment,
     this.backgroundColor,

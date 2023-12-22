@@ -321,7 +321,7 @@ class ProfileScreen extends StatelessWidget {
                                   color: Color(0XFF64748A),
                                   fontSize: 12,
                                 ))]))),
-              Spacer(),
+              const Spacer(),
               CustomImageView(
                   imagePath: "assets/img_arrow_down_gray_600_01.svg",
                   height: 16,
@@ -356,7 +356,7 @@ class ProfileScreen extends StatelessWidget {
               Container(
                   height: 32,
                   width: 32,
-                  margin: EdgeInsets.symmetric(vertical: 2),
+                  margin: const EdgeInsets.symmetric(vertical: 2),
                   child: Stack(alignment: Alignment.center, children: [
                     CustomImageView(
                         imagePath: "assets/img_lock.svg",
@@ -509,7 +509,7 @@ class ProfileScreen extends StatelessWidget {
                                   fontSize: 12,
                                 ))
                           ]))),
-              Spacer(),
+              const Spacer(),
               CustomImageView(
                   imagePath: "assets/img_arrow_down_gray_600_01.svg",
                   height: 16,

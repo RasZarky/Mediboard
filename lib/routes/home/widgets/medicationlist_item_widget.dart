@@ -12,7 +12,7 @@ class MedicationlistItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(12),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8)
       ),
@@ -36,13 +36,13 @@ class MedicationlistItemWidget extends StatelessWidget {
               fontSize: 12,
             ),
           ),
-          SizedBox(height: 40),
+          const SizedBox(height: 40),
           Row(
             children: [
               CustomIconButton(
                 height: 32,
                 width: 32,
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 child: CustomImageView(
                   imagePath: "assets/img_settings_deep_purple_a200_03.svg",
                 ),
@@ -62,7 +62,7 @@ class MedicationlistItemWidget extends StatelessWidget {
                 child: CustomIconButton(
                   height: 32,
                   width: 32,
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   child: CustomImageView(
                     imagePath: "assets/img_moon.svg",
                   ),
