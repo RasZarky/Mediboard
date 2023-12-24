@@ -77,7 +77,14 @@ class MedicationsPageState extends State<MedicationsPage> with TickerProviderSta
                             const SizedBox(height: 19),
                             GestureDetector(
                                 onTap: () {
-                                  onTapFrame(context);
+                                  showModalBottomSheet(
+                                      useSafeArea: true,
+                                      isScrollControlled: false,
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return TimeInDayDropdownModalScreen();
+                                      }
+                                  );
                                 },
                                 child: Row(children: [
                                   Row(
@@ -201,7 +208,7 @@ class MedicationsPageState extends State<MedicationsPage> with TickerProviderSta
                 onTapArrowLeft(context);
               }),
           title: AppbarTitle(
-              text: "Visits", margin: const EdgeInsets.only(left: 24)),
+              text: "Medications ", margin: const EdgeInsets.only(left: 24)),
         ));
   }
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mediboard/routes/share_screen/share_screen.dart';
 import 'package:mediboard/widgets/appBar/appbar_leading_image.dart';
 import 'package:mediboard/widgets/appBar/appbar_title.dart';
 import 'package:mediboard/widgets/appBar/custom_app_bar.dart';
@@ -131,6 +132,16 @@ class PastVisitScreen extends StatelessWidget {
                   purposeText: "Visited", monthText: "March 15, 2023"),
               const SizedBox(height: 26),
               CustomElevatedButton(
+                  onPressed: (){
+                    showModalBottomSheet(
+                        useSafeArea: true,
+                        isScrollControlled: false,
+                        context: context,
+                        builder: (BuildContext context) {
+                          return ShareScreen();
+                        }
+                    );
+                  },
                   height: 36,
                   text: "Share",
                   buttonStyle: ButtonStyle(

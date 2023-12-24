@@ -24,7 +24,7 @@ class MedicationsDetailPage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
                 child: SingleChildScrollView(
                     child: Container(
-                        padding: EdgeInsets.all(12),
+                        padding: const EdgeInsets.all(12),
                         decoration: AppDecoration.fillGray,
                         child: Column(children: [
                           _buildDoctorFrame(context),
@@ -57,8 +57,8 @@ class MedicationsDetailPage extends StatelessWidget {
               onTapArrowLeft(context);
             }),
         title: AppbarTitle(
-            text: "Medication Name", margin: EdgeInsets.only(left: 24)),
-        styleType: Style.bgShadow);
+            text: "Medication Name", margin: const EdgeInsets.only(left: 24)),
+        );
   }
 
   Widget _buildDoctorFrame(BuildContext context) {
@@ -69,11 +69,11 @@ class MedicationsDetailPage extends StatelessWidget {
         child: Column(mainAxisSize: MainAxisSize.min, children: [
           Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
             Padding(
-                padding: EdgeInsets.symmetric(vertical: 3),
+                padding: const EdgeInsets.symmetric(vertical: 3),
                 child: Text("Status", style: theme.textTheme.bodyMedium)),
             CustomElevatedButton(
                 height: 24,
-                width: 66,
+                width: 90,
                 text: "Active",
                 buttonStyle: CustomButtonStyles.fillLime,
                 buttonTextStyle: CustomTextStyles.bodyMediumLightgreen700)
@@ -91,13 +91,16 @@ class MedicationsDetailPage extends StatelessWidget {
               startDate: "Family", month: "Family Name"),
           SizedBox(height: 26),
           CustomElevatedButton(
+              buttonStyle: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(
+                    Colors.purple)
+              ),
               height: 36,
               text: "More Information",
               buttonTextStyle: CustomTextStyles.titleSmallOnPrimaryBold)
         ]));
   }
 
-  /// Section Widget
   Widget _buildHypertensionColumn(BuildContext context) {
     return Column(children: [
       Container(
@@ -167,7 +170,7 @@ class MedicationsDetailPage extends StatelessWidget {
                 decoration: AppDecoration.outlineGray100014,
                 child: CustomElevatedButton(
                     height: 28,
-                    width: 114,
+                    width: 50,
                     text: "Hypertension",
                     buttonStyle: CustomButtonStyles.fillGrayTL14,
                     buttonTextStyle: CustomTextStyles.bodyMediumBluegray800))
@@ -175,7 +178,6 @@ class MedicationsDetailPage extends StatelessWidget {
     ]);
   }
 
-  /// Section Widget
   Widget _buildPrescribedByFrame(BuildContext context) {
     return Container(
         decoration: AppDecoration.outlineBlack900
@@ -353,7 +355,6 @@ class MedicationsDetailPage extends StatelessWidget {
         ]));
   }
 
-  /// Section Widget
   Widget _buildInteractionsFrame(BuildContext context) {
     return Container(
         decoration: AppDecoration.shadow
@@ -489,7 +490,6 @@ class MedicationsDetailPage extends StatelessWidget {
         ]));
   }
 
-  /// Common widget
   Widget _buildStartDateFrame(
     BuildContext context, {
     required String startDate,
@@ -507,7 +507,6 @@ class MedicationsDetailPage extends StatelessWidget {
     ]);
   }
 
-  /// Common widget
   Widget _buildAboutFrame(
     BuildContext context, {
     required String aboutText,

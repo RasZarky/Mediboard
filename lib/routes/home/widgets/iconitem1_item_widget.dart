@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mediboard/routes/medications/medications_page.dart';
 import 'package:mediboard/routes/reports_page/reports_page.dart';
+import 'package:mediboard/routes/vaccinations_screen/vaccinations_screen.dart';
 import 'package:mediboard/routes/visits_page/visits_page.dart';
 import '../../../widgets/custom_image_view.dart';
 
@@ -28,6 +29,10 @@ class Iconitem1ItemWidget extends StatelessWidget {
         Navigator.push(
         context,
         MaterialPageRoute(builder: (context) =>  const MedicationsPage()),
+        ) : label == "Vaccinations" ?
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) =>  VaccinationsScreen()),
         ) :
         Navigator.push(
           context,
