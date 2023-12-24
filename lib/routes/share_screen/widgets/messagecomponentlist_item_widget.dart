@@ -4,7 +4,9 @@ import 'package:mediboard/theme/theme_helper.dart';
 import 'package:mediboard/widgets/custom_image_view.dart';
 
 class MessagecomponentlistItemWidget extends StatelessWidget {
-  const MessagecomponentlistItemWidget({Key? key})
+  final String imagePath;
+  final String name;
+  const MessagecomponentlistItemWidget({Key? key, required this.imagePath, required this.name})
       : super(
           key: key,
         );
@@ -12,7 +14,7 @@ class MessagecomponentlistItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 60,
+      width: 62,
       child: Align(
         alignment: Alignment.centerLeft,
         child: Padding(
@@ -20,7 +22,7 @@ class MessagecomponentlistItemWidget extends StatelessWidget {
           child: Column(
             children: [
               CustomImageView(
-                imagePath: "assets/img_imessage.png",
+                imagePath: imagePath,
                 height: 60,
                 width: 60,
               ),
@@ -32,18 +34,11 @@ class MessagecomponentlistItemWidget extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.only(top: 1, right: 5),
                       child: Text(
-                        "Message",
+                        name,
                         style: theme.textTheme.bodySmall,
                       ),
                     ),
-                    // Padding(
-                    //   padding: EdgeInsets.only(left: 296),
-                    //   child: Text(
-                    //     "Twitter",
-                    //     textAlign: TextAlign.center,
-                    //     style: CustomTextStyles.bodySmall12,
-                    //   ),
-                    // ),
+
                   ],
                 ),
               ),

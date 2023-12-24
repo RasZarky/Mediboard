@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mediboard/routes/share_screen/share_screen.dart';
 import 'package:mediboard/theme/app_decoration.dart';
 import 'package:mediboard/theme/custom_button_style.dart';
 import 'package:mediboard/theme/custom_text_style.dart';
@@ -65,6 +66,16 @@ class VaccinationDetailPageScreen extends StatelessWidget {
                                  backgroundColor:  MaterialStateProperty.all<Color>(
                                      Colors.purple)
                                 ),
+                                onPressed: (){
+                                  showModalBottomSheet(
+                                      useSafeArea: true,
+                                      isScrollControlled: false,
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return ShareScreen(label: 'Vaccine Name',);
+                                      }
+                                  );
+                                },
                                 height: 36,
                                 text: "Share",
                                 rightIcon: Container(

@@ -138,7 +138,7 @@ class PastVisitScreen extends StatelessWidget {
                         isScrollControlled: false,
                         context: context,
                         builder: (BuildContext context) {
-                          return ShareScreen();
+                          return ShareScreen(label: 'Visit Summery',);
                         }
                     );
                   },

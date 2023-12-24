@@ -6,10 +6,10 @@ import 'package:mediboard/theme/custom_text_style.dart';
 import 'package:mediboard/theme/theme_helper.dart';
 import 'package:mediboard/widgets/custom_icon_button.dart';
 import 'package:mediboard/widgets/custom_image_view.dart';
-import 'package:mediboard/widgets/custom_text_form_field.dart';
 
 class ShareScreen extends StatelessWidget {
-  ShareScreen({Key? key})
+  final String label;
+  ShareScreen({Key? key, required this.label})
       : super(
           key: key,
         );
@@ -156,7 +156,7 @@ class ShareScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Visit Summary",
+                        label,
                         style: CustomTextStyles.titleSmallSFProTextBlack900,
                       ),
                       SizedBox(height: 1),
@@ -201,9 +201,14 @@ class ShareScreen extends StatelessWidget {
             width: 20,
           );
         },
-        itemCount: 5,
+        itemCount: userItems.length,
         itemBuilder: (context, index) {
-          return UserprofilelistItemWidget();
+          final itemData = userItems[index];
+          return UserprofilelistItemWidget(
+            imagePath: itemData.imagePath,
+            imagePath2: itemData.imagePath2,
+            name: itemData.name,
+          );
         },
       ),
     );
@@ -228,44 +233,74 @@ class ShareScreen extends StatelessWidget {
               width: 25,
             );
           },
-          itemCount: 4,
+          itemCount: appItems.length,
           itemBuilder: (context, index) {
-            return const MessagecomponentlistItemWidget();
+            final appItemData = appItems[index];
+            return MessagecomponentlistItemWidget(
+              imagePath: appItemData.imagePath,
+              name: appItemData.name,
+            );
           },
         ),
       ),
     );
   }
 
-  Widget _buildButtonTwo(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.only(
-        left: 16,
-        right: 16,
-        bottom: 19,
-      ),
-      child: CustomTextFormField(
-        controller: buttonTwoController,
-        hintText: "Add to readinglist",
-        textInputAction: TextInputAction.done,
-        suffix: Container(
-          margin: EdgeInsets.fromLTRB(30, 13, 16, 13),
-          child: CustomImageView(
-            imagePath: "assets/img_settings_black_900.svg",
-            height: 24,
-            width: 24,
-          ),
-        ),
-        suffixConstraints: BoxConstraints(
-          maxHeight: 50,
-        ),
-        contentPadding: EdgeInsets.only(
-          left: 16,
-          top: 14,
-          bottom: 14,
-        ),
-        borderDecoration: TextFormFieldStyleHelper.outlineBlackTL9,
-      ),
-    );
-  }
 }
+
+class UserItemData {
+  final String imagePath;
+  final String imagePath2;
+  final String name;
+
+  UserItemData( {
+    required this.imagePath,
+    required this.imagePath2,
+    required this.name,
+  });
+}
+
+final List<UserItemData> userItems = [
+  UserItemData(imagePath: "assets/img_logo_secretpixels.png",
+    imagePath2: "assets/messenger icon.png",
+    name: "Hugo \nCollins",),
+  UserItemData(imagePath: "assets/Userpic.png",
+    imagePath2: "assets/Whatsapp Icon.png",
+    name: "Laura \nScott",),
+  UserItemData(imagePath: "assets/Userpic2.png",
+    imagePath2: "assets/img_imessage.png",
+    name: "Anne \Frank",),
+  UserItemData(imagePath: "assets/Userpic3.png",
+    imagePath2: "assets/img_imessage.png",
+    name: "Jacobs",),
+  UserItemData(imagePath: "assets/img_logo_secretpixels.png",
+    imagePath2: "assets/messenger icon.png",
+    name: "Hugo \nCollins",),
+  UserItemData(imagePath: "assets/img_logo_secretpixels.png",
+    imagePath2: "assets/messenger icon.png",
+    name: "Hugo \nCollins",),
+];
+
+class AppItemData {
+  final String imagePath;
+  final String name;
+
+  AppItemData( {
+    required this.imagePath,
+    required this.name,
+  });
+}
+
+final List<AppItemData> appItems = [
+  AppItemData(imagePath: "assets/img_imessage.png",
+    name: "Message",),
+  AppItemData(imagePath: "assets/Mail Icon.png",
+    name: "Mail",),
+  AppItemData(imagePath: "assets/messenger icon.png",
+    name: "Messenger",),
+  AppItemData(imagePath: "assets/Whatsapp Icon.png",
+    name: "WhatsApp",),
+  AppItemData(imagePath: "assets/img_imessage.png",
+    name: "Telegram",),
+
+];

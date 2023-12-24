@@ -5,7 +5,11 @@ import 'package:mediboard/widgets/custom_icon_button.dart';
 import 'package:mediboard/widgets/custom_image_view.dart';
 
 class UserprofilelistItemWidget extends StatelessWidget {
-  const UserprofilelistItemWidget({Key? key})
+  final String imagePath;
+  final String imagePath2;
+  final String name;
+
+  const UserprofilelistItemWidget({Key? key, required this.imagePath, required this.imagePath2, required this.name})
       : super(
           key: key,
         );
@@ -32,7 +36,7 @@ class UserprofilelistItemWidget extends StatelessWidget {
                       borderRadius: BorderRadiusStyle.circleBorder30,
                     ),
                     child: CustomImageView(
-                      imagePath: "assets/img_logo_secretpixels.png",
+                      imagePath: imagePath,
                       height: 60,
                       width: 60,
                       radius: BorderRadius.circular(
@@ -48,7 +52,7 @@ class UserprofilelistItemWidget extends StatelessWidget {
                   decoration: IconButtonStyleHelper.outlineBlack,
                   alignment: Alignment.bottomRight,
                   child: CustomImageView(
-                    imagePath: "assets/img_imessage.png",
+                    imagePath: imagePath2,
                   ),
                 ),
               ],
@@ -59,7 +63,7 @@ class UserprofilelistItemWidget extends StatelessWidget {
             width: 36,
             margin: EdgeInsets.only(left: 12),
             child: Text(
-              "Hugo \nCollins",
+              name,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
               textAlign: TextAlign.center,
