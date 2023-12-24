@@ -25,13 +25,6 @@ int sliderIndex = 1;
 final GlobalKey<AnimatedCircularChartState> _chartKey = GlobalKey<AnimatedCircularChartState>();
 
 class _HomeState extends State<Home> {
-  late List<GridItemData> gridItems;
-
-  @override
-  void initState() {
-    super.initState();
-    gridItems = buildGridItems(context);
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -180,7 +173,6 @@ class _HomeState extends State<Home> {
   }
 
   Widget _buildUserProfile(BuildContext context) {
-    final List<GridItemData> gridItems = buildGridItems(context);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 42),
       child: Column(
@@ -269,19 +261,14 @@ class GridItemData {
   });
 }
 
-// final List<GridItemData> gridItems = [
-//   GridItemData(imagePath: "assets/visits.png", label: "Visits", count: 2, onTap: (){
-//     Navigator.push(
-//       context,
-//       MaterialPageRoute(builder: (context) => const VisitsPage()),
-//     );
-//   },),
-//   GridItemData(imagePath: "assets/reports.png", label: "Reports", ),
-//   GridItemData(imagePath: "assets/medical_profile.png", label: "Medical Profile",),
-//   GridItemData(imagePath: "assets/medication.png", label: "Medication",),
-//   GridItemData(imagePath: "assets/tests.png", label: "Tests", count: 1),
-//   GridItemData(imagePath: "assets/wearables.png", label: "Wearables",),
-// ];
+final List<GridItemData> gridItems = [
+  GridItemData(imagePath: "assets/visits.png", label: "Visits", count: 2,),
+  GridItemData(imagePath: "assets/medication.png", label: "Medications", ),
+  GridItemData(imagePath: "assets/vaccinations.png", label: "Vaccinations", ),
+  GridItemData(imagePath: "assets/reports.png", label: "Reports", ),
+  GridItemData(imagePath: "assets/tests.png", label: "Tests", count: 1),
+  GridItemData(imagePath: "assets/wearables.png", label: "Wearables",),
+];
 
 List<GridItemData> buildGridItems(BuildContext context) {
   return [

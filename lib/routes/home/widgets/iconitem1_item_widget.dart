@@ -1,29 +1,38 @@
 import 'package:flutter/material.dart';
-
+import 'package:mediboard/routes/medications/medications_page.dart';
+import 'package:mediboard/routes/reports_page/reports_page.dart';
+import 'package:mediboard/routes/visits_page/visits_page.dart';
 import '../../../widgets/custom_image_view.dart';
 
 class Iconitem1ItemWidget extends StatelessWidget {
   final String imagePath;
   final String label;
   final int? count;
-  final VoidCallback? onTap;
 
   const Iconitem1ItemWidget({
     Key? key,
     required this.imagePath,
     required this.label,
     required this.count,
-    this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        print("Iconitem1ItemWidget tapped!");  // Add this line for debugging
-        if (onTap != null) {
-          onTap!();
-        }
+      onTap: (){
+        label == "Visits" ?
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const VisitsPage()),
+        ) : label == "Medications" ?
+        Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) =>  const MedicationsPage()),
+        ) :
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) =>  ReportsPage()),
+        );
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
