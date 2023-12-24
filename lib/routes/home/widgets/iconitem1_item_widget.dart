@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mediboard/routes/visits_page/visits_page.dart';
 
 import '../../../widgets/custom_image_view.dart';
 
@@ -20,11 +19,11 @@ class Iconitem1ItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => VisitsPage()),
-        );
+      onTap: () {
+        print("Iconitem1ItemWidget tapped!");  // Add this line for debugging
+        if (onTap != null) {
+          onTap!();
+        }
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -94,7 +94,7 @@ class Userprofile3ItemWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 47),
+                const SizedBox(height: 20),
                 const Align(
                   alignment: Alignment.centerLeft,
                   child: Padding(

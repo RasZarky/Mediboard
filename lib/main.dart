@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+ import 'package:flutter/material.dart';
 import 'package:mediboard/routes/splashScreen.dart';
 
 void main() {

@@ -24,11 +24,11 @@ class PastVisitScreen extends StatelessWidget {
                 ),
                 child:
                     Column(mainAxisAlignment: MainAxisAlignment.start, children: [
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   _buildDoctor(context),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   _buildFrame1(context),
-                  SizedBox(height: 12),
+                  const SizedBox(height: 12),
                   _buildComponentFive(context)
                 ]))));
   }
@@ -53,13 +53,13 @@ class PastVisitScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          color: Color(0X7AFFFFFF).withOpacity(1),
+          color: const Color(0X7AFFFFFF).withOpacity(1),
           boxShadow: [
             BoxShadow(
-              color: Color(0XFF000000).withOpacity(0.07),
+              color: const Color(0XFF000000).withOpacity(0.07),
               spreadRadius: 2,
               blurRadius: 2,
-              offset: Offset(
+              offset: const Offset(
                 0,
                 1,
               ),
@@ -123,13 +123,13 @@ class PastVisitScreen extends StatelessWidget {
                           )))
                 ])
               ]),
-              SizedBox(height: 23),
+              const SizedBox(height: 23),
               _buildDoctorFrame(context,
                   purposeText: "Specialty ", monthText: "Cardiology "),
-              SizedBox(height: 21),
+              const SizedBox(height: 21),
               _buildDoctorFrame(context,
                   purposeText: "Visited", monthText: "March 15, 2023"),
-              SizedBox(height: 26),
+              const SizedBox(height: 26),
               CustomElevatedButton(
                   height: 36,
                   text: "Share",
@@ -139,7 +139,7 @@ class PastVisitScreen extends StatelessWidget {
                     ),
                   ),
                   rightIcon: Container(
-                      margin: EdgeInsets.only(left: 4),
+                      margin: const EdgeInsets.only(left: 4),
                       child: CustomImageView(
                           imagePath: "assets/img_share.svg",
                           height: 16,
@@ -152,10 +152,10 @@ class PastVisitScreen extends StatelessWidget {
     return Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          color: Color(0X7AFFFFFF).withOpacity(1),
+          color: const Color(0X7AFFFFFF).withOpacity(1),
           boxShadow: [
             BoxShadow(
-              color: Color(0XFF000000).withOpacity(0.06),
+              color: const Color(0XFF000000).withOpacity(0.06),
               spreadRadius: 2,
               blurRadius: 2,
               offset: const Offset(
@@ -166,13 +166,13 @@ class PastVisitScreen extends StatelessWidget {
           ],
         ),
         child: Container(
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              color: Color(0X7AFFFFFF).withOpacity(1),
+              color: const Color(0X7AFFFFFF).withOpacity(1),
               boxShadow: [
                 BoxShadow(
-                  color: Color(0XFF000000).withOpacity(0.1),
+                  color: const Color(0XFF000000).withOpacity(0.1),
                   spreadRadius: 2,
                   blurRadius: 2,
                   offset: const Offset(
@@ -198,18 +198,18 @@ class PastVisitScreen extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   )),
-              Spacer(),
+              const Spacer(),
               CustomOutlinedButton(
                   height: 24,
                   width: 41,
                   text: "EN",
-                  margin: EdgeInsets.symmetric(vertical: 4),
+                  margin: const EdgeInsets.symmetric(vertical: 4),
                   buttonStyle: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
                       Colors.white,
                     ),
                     side: MaterialStateProperty.all<BorderSide>(
-                      BorderSide(
+                      const BorderSide(
                         color: Color(0XFF6366F1),
                         width: 1,
                       ),
@@ -220,7 +220,7 @@ class PastVisitScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  buttonTextStyle: TextStyle(
+                  buttonTextStyle: const TextStyle(
                     color: Colors.purple,
                     fontSize: 12,
                   )),
@@ -228,19 +228,19 @@ class PastVisitScreen extends StatelessWidget {
                   imagePath: "assets/img_external_link.svg",
                   height: 16,
                   width: 16,
-                  margin: EdgeInsets.fromLTRB(8, 8, 4, 8))
+                  margin: const EdgeInsets.fromLTRB(8, 8, 4, 8))
             ])));
   }
 
   Widget _buildComponentFive(BuildContext context) {
     return Container(
-        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 14),
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 14),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          color: Color(0X7AFFFFFF).withOpacity(1),
+          color: const Color(0X7AFFFFFF).withOpacity(1),
           boxShadow: [
             BoxShadow(
-              color: Color(0XFF000000).withOpacity(0.06),
+              color: const Color(0XFF000000).withOpacity(0.06),
               spreadRadius: 2,
               blurRadius: 2,
               offset: const Offset(
@@ -254,7 +254,7 @@ class PastVisitScreen extends StatelessWidget {
           Container(
               height: 32,
               width: 32,
-              margin: EdgeInsets.symmetric(vertical: 2),
+              margin: const EdgeInsets.symmetric(vertical: 2),
               child: Stack(alignment: Alignment.center, children: [
                 CustomImageView(
                     imagePath: "assets/img_profile.svg",
@@ -266,15 +266,15 @@ class PastVisitScreen extends StatelessWidget {
                     child: Card(
                         clipBehavior: Clip.antiAlias,
                         elevation: 0,
-                        margin: EdgeInsets.all(0),
-                        color: Color(0XFFFBBF24),
+                        margin: const EdgeInsets.all(0),
+                        color: const Color(0XFFFBBF24),
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(4)),
                         child: Container(
                             height: 32,
                             width: 32,
                             decoration: BoxDecoration(
-                                color: Color(0XFFFBBF24),
+                                color: const Color(0XFFFBBF24),
                                 borderRadius: BorderRadius.circular(4)),
                             child: Stack(
                                 alignment: Alignment.bottomLeft,
@@ -316,9 +316,9 @@ class PastVisitScreen extends StatelessWidget {
   }) {
     return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
       Padding(
-          padding: EdgeInsets.only(bottom: 1),
+          padding: const EdgeInsets.only(bottom: 1),
           child: Text(purposeText,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Color(0XFF64748A),
                 fontSize: 14,
                 fontFamily: 'Inter',

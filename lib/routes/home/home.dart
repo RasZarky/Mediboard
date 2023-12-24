@@ -1,12 +1,14 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:circular_chart_flutter/circular_chart_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_xlider/flutter_xlider.dart';
 import 'package:mediboard/routes/home/widgets/activemedications_item_widget.dart';
 import 'package:mediboard/routes/home/widgets/iconitem1_item_widget.dart';
 import 'package:mediboard/routes/home/widgets/recentorders_item_widget.dart';
 import 'package:mediboard/routes/home/widgets/userprofile3_item_widget.dart';
 import 'package:mediboard/routes/modal_actions_screen/modal_actions_screen.dart';
 import 'package:mediboard/routes/notifications/notifications_screen.dart';
+import 'package:mediboard/routes/visits_page/visits_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
@@ -23,10 +25,19 @@ int sliderIndex = 1;
 final GlobalKey<AnimatedCircularChartState> _chartKey = GlobalKey<AnimatedCircularChartState>();
 
 class _HomeState extends State<Home> {
+  late List<GridItemData> gridItems;
+
+  @override
+  void initState() {
+    super.initState();
+    gridItems = buildGridItems(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         body: SizedBox(
           width: double.maxFinite,
           child: Column(
@@ -121,7 +132,7 @@ class _HomeState extends State<Home> {
                         height: 8,
                         child: AnimatedSmoothIndicator(
                           activeIndex: sliderIndex,
-                          count: 1,
+                          count: 4,
                           axisDirection: Axis.horizontal,
                           effect: const ScrollingDotsEffect(
                             spacing: 16,
@@ -132,6 +143,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ),
+                      const SizedBox(height: 40),
                     ],
                   ),
                 ),
@@ -139,6 +151,7 @@ class _HomeState extends State<Home> {
             ],
           ),
         ),
+
         bottomNavigationBar: _buildBottomAppBar(context),
         floatingActionButton: CustomFloatingButton(
           onTap: (){
@@ -147,7 +160,6 @@ class _HomeState extends State<Home> {
                 isScrollControlled: true,
                 context: context,
                 builder: (BuildContext context) {
-              // You can replace this with your own widget for the bottom sheet content
               return const ModalActionsScreen();
             }
             );
@@ -162,103 +174,136 @@ class _HomeState extends State<Home> {
           ),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+
       ),
     );
   }
+
+  Widget _buildUserProfile(BuildContext context) {
+    final List<GridItemData> gridItems = buildGridItems(context);
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 42),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 4),
+            child: GridView.builder(
+              shrinkWrap: true,
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                mainAxisExtent: 96,
+                crossAxisCount: 3,
+                mainAxisSpacing: 15,
+                crossAxisSpacing: 15,
+              ),
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: gridItems.length,
+              itemBuilder: (context, index) {
+                final itemData = gridItems[index];
+
+                return Iconitem1ItemWidget(
+                  imagePath: itemData.imagePath,
+                  label: itemData.label,
+                  count: itemData.count,
+                );
+              },
+            ),
+          ),
+
+          const SizedBox(height: 38),
+
+          AnimatedCircularChart(
+            key: _chartKey,
+            size: const Size(300.0, 300.0),
+            initialChartData: const <CircularStackEntry>[
+              CircularStackEntry(
+                <CircularSegmentEntry>[
+                  CircularSegmentEntry(
+                    33.33,
+                    Color(0XFF22D3EE),
+                    rankKey: 'completed',
+                  ),
+                  CircularSegmentEntry(
+                    33.33,
+                    Color(0XFFEAB308),
+                    rankKey: 'remaining',
+                  ),
+                  CircularSegmentEntry(
+                    33.33,
+                    Color(0XFFFB7185),
+                    rankKey: 'remaining',
+                  ),
+                ],
+                rankKey: 'progress',
+              ),
+            ],
+            // holeRadius: 60.0,
+            edgeStyle: SegmentEdgeStyle.round,
+            chartType: CircularChartType.Radial,
+            percentageValues: true,
+            holeLabel: 'Upcoming \n 3 activities',
+            labelStyle: TextStyle(
+              color: Colors.blueGrey[600],
+              fontWeight: FontWeight.bold,
+              fontSize: 24.0,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
 }
 
-Widget _buildUserProfile(BuildContext context) {
-  return Container(
-    padding: const EdgeInsets.symmetric(horizontal: 42),
-    child: Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 4),
-          child: GridView.builder(
-            shrinkWrap: true,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              mainAxisExtent: 96,
-              crossAxisCount: 3,
-              mainAxisSpacing: 15,
-              crossAxisSpacing: 15,
-            ),
-            physics: const NeverScrollableScrollPhysics(),
-            itemCount: 6,
-            itemBuilder: (context, index) {
-              final itemData = gridItems[index];
-
-              return Iconitem1ItemWidget(
-                imagePath: itemData.imagePath,
-                label: itemData.label,
-                count: itemData.count,
-              );
-            },
-          ),
-        ),
-
-        const SizedBox(height: 38),
-
-        AnimatedCircularChart(
-          key: _chartKey,
-          size: const Size(300.0, 300.0),
-          initialChartData: const <CircularStackEntry>[
-            CircularStackEntry(
-              <CircularSegmentEntry>[
-                CircularSegmentEntry(
-                  33.33,
-                  Color(0XFF22D3EE),
-                  rankKey: 'completed',
-                ),
-                CircularSegmentEntry(
-                  33.33,
-                  Color(0XFFEAB308),
-                  rankKey: 'remaining',
-                ),
-                CircularSegmentEntry(
-                  33.33,
-                  Color(0XFFFB7185),
-                  rankKey: 'remaining',
-                ),
-              ],
-              rankKey: 'progress',
-            ),
-          ],
-          // holeRadius: 60.0,
-          edgeStyle: SegmentEdgeStyle.round,
-          chartType: CircularChartType.Radial,
-          percentageValues: true,
-          holeLabel: 'Upcoming \n 3 activities',
-          labelStyle: TextStyle(
-            color: Colors.blueGrey[600],
-            fontWeight: FontWeight.bold,
-            fontSize: 24.0,
-          ),
-        )
-      ],
-    ),
-  );
-}
 
 class GridItemData {
   final String imagePath;
   final String label;
   final int? count;
+  final VoidCallback? onTap;
 
-  GridItemData({
+  GridItemData( {
     required this.imagePath,
     required this.label,
     this.count,
+    this.onTap,
   });
 }
 
-final List<GridItemData> gridItems = [
-  GridItemData(imagePath: "assets/visits.png", label: "Visits", count: 2),
-  GridItemData(imagePath: "assets/reports.png", label: "Reports", ),
-  GridItemData(imagePath: "assets/medical_profile.png", label: "Medical Profile",),
-  GridItemData(imagePath: "assets/medication.png", label: "Medication",),
-  GridItemData(imagePath: "assets/tests.png", label: "Tests", count: 1),
-  GridItemData(imagePath: "assets/wearables.png", label: "Wearables",),
-];
+// final List<GridItemData> gridItems = [
+//   GridItemData(imagePath: "assets/visits.png", label: "Visits", count: 2, onTap: (){
+//     Navigator.push(
+//       context,
+//       MaterialPageRoute(builder: (context) => const VisitsPage()),
+//     );
+//   },),
+//   GridItemData(imagePath: "assets/reports.png", label: "Reports", ),
+//   GridItemData(imagePath: "assets/medical_profile.png", label: "Medical Profile",),
+//   GridItemData(imagePath: "assets/medication.png", label: "Medication",),
+//   GridItemData(imagePath: "assets/tests.png", label: "Tests", count: 1),
+//   GridItemData(imagePath: "assets/wearables.png", label: "Wearables",),
+// ];
+
+List<GridItemData> buildGridItems(BuildContext context) {
+  return [
+    GridItemData(
+      imagePath: "assets/visits.png",
+      label: "Visits",
+      count: 2,
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const VisitsPage()),
+        );
+      },
+    ),
+    GridItemData(imagePath: "assets/reports.png", label: "Reports", ),
+    GridItemData(imagePath: "assets/medical_profile.png", label: "Medical Profile",),
+    GridItemData(imagePath: "assets/medication.png", label: "Medication",),
+    GridItemData(imagePath: "assets/tests.png", label: "Tests", count: 1),
+    GridItemData(imagePath: "assets/wearables.png", label: "Wearables",),
+  ];
+}
+
 
 Widget _buildRecentOrders(BuildContext context) {
 
@@ -305,14 +350,14 @@ List<OrderData> getOrders() {
   return [
     OrderData(
       imagePath: "assets/visits.png",
-      title: "Future Visits 1",
+      title: "Future Visits",
       quantity: "1",
       colour: const Color(0XFF22D3EE).withOpacity(1)
     ),
     OrderData(
       imagePath: "assets/medication.png",
-      title: "Future medication",
-      quantity: "2",
+      title: "Future Vaccinations",
+      quantity: "1",
       colour: const Color(0XFFEAB308).withOpacity(1)
     ),
     OrderData(
@@ -405,229 +450,130 @@ Widget _buildUserProfileList(BuildContext context) {
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Expanded(
-          child: Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  width: 336,
-                  padding: const EdgeInsets.fromLTRB(10, 10, 10, 9),
-                  decoration: const BoxDecoration(
-                    border: Border(
-                      bottom: BorderSide(
-                        color: Color(0XFFE2E8F0),
-                        width: 1,
-                      ),
-                    ),
-                  ),
-                  child: const Text(
-                    "Feb 15, 2023",
-                    style: TextStyle(
-                      color: Color(0XFF111826),
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Container(
+                width: 336,
+                padding: const EdgeInsets.fromLTRB(10, 10, 10, 9),
+                decoration: const BoxDecoration(
+                  border: Border(
+                    bottom: BorderSide(
+                      color: Color(0XFFE2E8F0),
+                      width: 1,
                     ),
                   ),
                 ),
-                SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: IntrinsicWidth(
-                    child: SizedBox(
-                      height: 156,
-                      width: 336,
-                      child: Stack(
-                        alignment: Alignment.centerRight,
-                        children: [
-                          Align(
-                            alignment: Alignment.center,
-                            child: Container(
-                              padding:
-                              const EdgeInsets.fromLTRB(12, 12, 12, 11),
-                              decoration:  const BoxDecoration(
-                                border: Border(
-                                  bottom: BorderSide(
-                                    color: Color(0XFFF1F5F9),
-                                    width: 1,
-                                  ),
-                                ),
+                child: const Text(
+                  "Feb 15, 2023",
+                  style: TextStyle(
+                    color: Color(0XFF111826),
+                  ),
+                ),
+              ),
+              IntrinsicWidth(
+                child: SizedBox(
+                  height: 156,
+                  width: 336,
+                  child: Stack(
+                    alignment: Alignment.centerRight,
+                    children: [
+                      Align(
+                        alignment: Alignment.center,
+                        child: Container(
+                          padding:
+                          const EdgeInsets.fromLTRB(12, 12, 12, 11),
+                          decoration:  const BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                color: Color(0XFFF1F5F9),
+                                width: 1,
                               ),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                            ),
+                          ),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      const Text(
-                                        "B12",
-                                        style: TextStyle(
-                                          color: Color(0XFF111826),
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w700,
-                                        ),
-                                      ),
-                                      const Text(
-                                        "173 pg/ml",
-                                        style:TextStyle(
-                                          color: Color(0XFFDC2626),
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                      Container(
-                                        width: 79,
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 8,
-                                          vertical: 4,
-                                        ),
-                                        decoration:
-                                        BoxDecoration(
-                                          color: const Color(0XFFFEF2F2),
-                                          borderRadius: BorderRadius.circular(12),
-                                        ),
-                                        child: const Text(
-                                          "Off Track",
-                                          style: TextStyle(
-                                            color: Color(0XFFDC2626)
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  const SizedBox(height: 92),
                                   const Text(
-                                    "Last test result: 154 pg/ml (90 days ago)",
+                                    "B12",
                                     style: TextStyle(
-                                      fontSize: 15
+                                      color: Color(0XFF111826),
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  const Text(
+                                    "173 pg/ml",
+                                    style:TextStyle(
+                                      color: Color(0XFFDC2626),
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 79,
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 8,
+                                      vertical: 4,
+                                    ),
+                                    decoration:
+                                    BoxDecoration(
+                                      color: const Color(0XFFFEF2F2),
+                                      borderRadius: BorderRadius.circular(12),
+                                    ),
+                                    child: const Text(
+                                      "Off Track",
+                                      style: TextStyle(
+                                        color: Color(0XFFDC2626)
+                                      ),
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
+                              const SizedBox(height: 72),
+                              const Text(
+                                "Last test result: 154 pg/ml (90 days ago)",
+                                style: TextStyle(
+                                  fontSize: 15
+                                ),
+                              ),
+                            ],
                           ),
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Container(
-                                    margin: const EdgeInsets.only(
-                                      left: 12,
-                                      right: 260,
-                                    ),
-                                    padding:
-                                    const EdgeInsets.symmetric(horizontal: 7),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      color: const Color(0X7AFFFFFF).withOpacity(1),
-                                      border: Border.all(
-                                        color: const Color(0XFFD1D5DB),
-                                        width: 1,
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      mainAxisAlignment:
-                                      MainAxisAlignment.end,
-                                      children: [
-                                        const SizedBox(height: 8),
-                                        const Text(
-                                          "173 pg/ml",
-                                          style: TextStyle(
-                                              color: Color(0XFF374151)
-                                          ),
-                                        ),
-                                        const SizedBox(height: 8),
-                                        CustomImageView(
-                                          imagePath: "assets/img_bottom_break.svg",
-                                          height: 1,
-                                          width: 40,
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(height: 20),
-                                Container(
-                                  decoration: const BoxDecoration(
-                                    color: Color(0XFFE5E7EB)
-                                  ),
-                                  child: Container(
-                                    width: 124,
-                                    margin: const EdgeInsets.only(right: 230),
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 43),
-                                    decoration: BoxDecoration(
-                                      color: const Color(0XFFEF4444),
-                                      borderRadius: BorderRadius.circular(1)
-                                    ),
-                                    child: Container(
-                                      height: 20,
-                                      width: 20,
-                                      decoration: BoxDecoration(
-                                        color: const Color(0X7AFFFFFF).withOpacity(1),
-                                        borderRadius: BorderRadius.circular(
-                                          10,
-                                        ),
-                                        border: Border.all(
-                                          color: const Color(0XFFD1D5DB),
-                                          width: 1,
-                                        ),
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: const Color(0XFF000000).withOpacity(0.07),
-                                            spreadRadius: 2,
-                                            blurRadius: 2,
-                                            offset: const Offset(
-                                              0,
-                                              1,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(height: 8),
-                                Container(
-                                  width: 182,
-                                  margin:
-                                  const EdgeInsets.symmetric(horizontal: 86),
-                                  child: const Row(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        "200 ",
-                                        style:TextStyle(
-                                          color: Color(0XFF111826),
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                      Text(
-                                        "1100",
-                                        style:TextStyle(
-                                          color: Color(0XFF111826),
-                                          fontSize: 15,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                          child: FlutterSlider(
+                            hatchMark: FlutterSliderHatchMark(
+                              density: 0.5, // means 50 lines, from 0 to 100 percent
+                              labels: [
+                                FlutterSliderHatchMarkLabel(percent: 30, label: Text('2000')),
+                                FlutterSliderHatchMarkLabel(percent: 80, label: Text('1100')),
                               ],
                             ),
-                          ),
-                        ],
+                            values: [300],
+                            max: 1500,
+                            min: 0,
+                            onDragging: (handlerIndex, lowerValue, upperValue) {
+                              lowerValue = lowerValue;
+                              upperValue = upperValue;
+                              // setState(() {});
+                            },
+                          )
                       ),
-                    ),
+                    ],
                   ),
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
         Expanded(
@@ -646,8 +592,7 @@ Widget _buildUserProfileList(BuildContext context) {
               },
               itemCount: 3,
               itemBuilder: (context, index) {
-                return const Userprofile3ItemWidget();
-              },
+                return const Userprofile3ItemWidget();},
             ),
           ),
         ),

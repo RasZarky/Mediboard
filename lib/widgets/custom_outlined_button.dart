@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mediboard/widgets/base_button.dart';
 
 class CustomOutlinedButton extends BaseButton {
-  CustomOutlinedButton({
-    Key? key,
+  const CustomOutlinedButton({super.key, 
+
     this.decoration,
     this.leftIcon,
     this.rightIcon,
@@ -48,8 +48,8 @@ class CustomOutlinedButton extends BaseButton {
   }
 
   Widget get buildOutlinedButtonWidget => Container(
-        height: this.height ?? 40,
-        width: this.width ?? double.maxFinite,
+        height: height ?? 40,
+        width: width ?? double.maxFinite,
         margin: margin,
         decoration: decoration,
         child: OutlinedButton(
@@ -63,7 +63,7 @@ class CustomOutlinedButton extends BaseButton {
               Text(
                 text,
                 style:
-                    buttonTextStyle ?? TextStyle(
+                    buttonTextStyle ?? const TextStyle(
                       color: Color(0XFF6B7280),
                       fontSize: 15,
                     ),

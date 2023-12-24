@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mediboard/routes/forYou/for_you_page.dart';
 import 'package:mediboard/routes/home/home.dart';
 import 'package:mediboard/routes/profile/profile_screen.dart';
+import 'package:mediboard/routes/reports_page/reports_page.dart';
 
 import 'custom_image_view.dart';
 
@@ -183,11 +184,10 @@ void navigateToPage(BuildContext context, BottomBarEnum type) {
       );
       break;
     case BottomBarEnum.reports:
-    // Navigate to Reports page
-    //   Navigator.push(
-    //     context,
-    //     MaterialPageRoute(builder: (context) => ReportsPage()),
-    //   );
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ReportsPage()),
+      );
       break;
     case BottomBarEnum.Profile:
       Navigator.push(
