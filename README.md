@@ -39,7 +39,7 @@ Medication Page
 
 Vaccination Page
 
-<img src="https://github.com/RasZarky/Mediboard/assets/83512618/12b237f0-f3e5-4393-9139-c57f7d261dd9" width="200" heigth="400">  <img src="https://github.com/RasZarky/Mediboard/assets/83512618/11ced1cf-d142-42d7-b1d1-f8dd1ab32d70" width="200" heigth="400">   <img src="https://https://github.com/RasZarky/Mediboard/assets/83512618/04497f26-b458-4832-8323-33f439767aec" width="200" heigth="400">
+<img src="https://github.com/RasZarky/Mediboard/assets/83512618/12b237f0-f3e5-4393-9139-c57f7d261dd9" width="200" heigth="400">  <img src="https://github.com/RasZarky/Mediboard/assets/83512618/11ced1cf-d142-42d7-b1d1-f8dd1ab32d70" width="200" heigth="400">   <img src="https://github.com/RasZarky/Mediboard/assets/83512618/04497f26-b458-4832-8323-33f439767aec" width="200" heigth="400">
 
 Reports Page
 
