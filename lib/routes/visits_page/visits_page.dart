@@ -104,7 +104,7 @@ class VisitsPageState extends State<VisitsPage> with TickerProviderStateMixin {
         child: CustomAppBar(
           leadingWidth: 40,
           leading: AppbarLeadingImage(
-              imagePath: "assets/img_arrow_down_gray_600_01.svg",
+              imagePath: "assets/chevron-left.png",
               margin: const EdgeInsets.only(left: 16, top: 18, bottom: 18),
               onTap: () {
                 onTapArrowLeft(context);

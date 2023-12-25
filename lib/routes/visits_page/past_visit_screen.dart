@@ -39,7 +39,7 @@ class PastVisitScreen extends StatelessWidget {
         height: 60,
         leadingWidth: 40,
         leading: AppbarLeadingImage(
-            imagePath: "assets/img_arrow_down_gray_600_01.svg",
+            imagePath: "assets/chevron-left.png",
             margin: const EdgeInsets.only(left: 16, top: 18, bottom: 18),
             onTap: () {
               onTapArrowLeft(context);

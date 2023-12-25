@@ -46,7 +46,7 @@ class VaccinationsScreen extends StatelessWidget {
                       height: 24,
                       leadingWidth: 40,
                       leading: AppbarLeadingImage(
-                          imagePath: "assets/img_arrow_down_gray_600_01.svg",
+                          imagePath: "assets/chevron-left.png",
                           margin: EdgeInsets.only(left: 16),
                           onTap: () {
                             onTapArrowLeft(context);
