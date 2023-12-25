@@ -21,6 +21,10 @@ Home page
 
 <img src="https://github.com/RasZarky/Mediboard/assets/83512618/dc547734-d24d-4f4f-8ced-5092e0166b3c" width="200" heigth="400">    <img src="https://github.com/RasZarky/Mediboard/assets/83512618/ccc09df7-d248-4a71-aba1-e8e4213eb612" width="200" heigth="400">     <img src="https://github.com/RasZarky/Mediboard/assets/83512618/25563c00-2066-4836-8257-11b96ca6271a" width="200" heigth="400">
 
+Floating action button modal
+
+<img src="https://github.com/RasZarky/Mediboard/assets/83512618/6ac029d7-e4d7-48ff-889f-2ea2e051023c" width="200" heigth="400">
+
 Notification Page
 
 <img src="https://github.com/RasZarky/Mediboard/assets/83512618/19a1c501-34d2-4563-a10e-8a37e27912c7" width="200" heigth="400">
@@ -32,6 +36,10 @@ Visits Page
 Medication Page
 
 <img src="https://github.com/RasZarky/Mediboard/assets/83512618/0f6027cf-70b3-46a7-8146-7d96ab99ab4d" width="200" heigth="400">   <img src="https://github.com/RasZarky/Mediboard/assets/83512618/d5f022ce-f8f8-4753-8a47-bd76d6dacb05" width="200" heigth="400">   <img src="https://github.com/RasZarky/Mediboard/assets/83512618/741d9ec6-3e6b-408e-a85e-7f0cdfa135db" width="200" heigth="400">
+
+Vaccination Page
+
+<img src="https://github.com/RasZarky/Mediboard/assets/83512618/12b237f0-f3e5-4393-9139-c57f7d261dd9" width="200" heigth="400">  <img src="https://github.com/RasZarky/Mediboard/assets/83512618/11ced1cf-d142-42d7-b1d1-f8dd1ab32d70" width="200" heigth="400">   <img src="https://https://github.com/RasZarky/Mediboard/assets/83512618/04497f26-b458-4832-8323-33f439767aec" width="200" heigth="400">
 
 Reports Page
 
