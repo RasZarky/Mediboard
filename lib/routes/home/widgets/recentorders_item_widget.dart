@@ -93,106 +93,98 @@ class RecentordersItemWidget extends StatelessWidget {
           ),
         ),
         children: [
-          ListTile(
-
-            title: Visibility(
-              visible: title == "Future Visits",
-              child: Container(
-                width: 340,
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const SizedBox(height: 4),
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadiusStyle.roundedBorder8,
-                      ),
-                      child: Column(
-                        children: [
-                          Container(
-                            height: 12,
-                            width: 366,
-                            decoration: BoxDecoration(
-                              color: theme.colorScheme.onPrimary.withOpacity(1),
-                              border: Border(
-                                bottom: BorderSide(
-                                  color: appTheme.gray10001,
-                                  width: 1,
-                                ),
+          title == "Future Visits" ? ListTile(
+            title: Container(
+              width: 340,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadiusStyle.roundedBorder8,
+                    ),
+                    child: Column(
+                      children: [
+                        Container(
+                          height: 12,
+                          width: 366,
+                          decoration: BoxDecoration(
+                            color: theme.colorScheme.onPrimary.withOpacity(1),
+                            border: Border(
+                              bottom: BorderSide(
+                                color: appTheme.gray10001,
+                                width: 1,
                               ),
                             ),
                           ),
-                          Container(
-                            padding: const EdgeInsets.fromLTRB(16, 12, 16, 11),
-                            decoration: AppDecoration.outlineGray100011,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                const SizedBox(height: 9),
-                                Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: Container(
-                                    width: 281,
-                                    margin: const EdgeInsets.only(right: 52),
-                                    child: Text(
-                                      "Plan your future visit to *Dr.\tDavid\tQ.\tCochran*",
-                                      maxLines: 2,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: CustomTextStyles.titleMedium16.copyWith(
-                                        height: 1.50,
-                                      ),
+                        ),
+                        Container(
+                          padding: const EdgeInsets.fromLTRB(16, 12, 16, 11),
+                          decoration: AppDecoration.outlineGray100011,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              const SizedBox(height: 9),
+                              Align(
+                                alignment: Alignment.centerLeft,
+                                child: Container(
+                                  width: 281,
+                                  margin: const EdgeInsets.only(right: 52),
+                                  child: Text(
+                                    "Plan your future visit to *Dr.\tDavid\tQ.\tCochran*",
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: CustomTextStyles.titleMedium16.copyWith(
+                                      height: 1.50,
                                     ),
                                   ),
                                 ),
-                                const SizedBox(height: 17),
-                                _buildSpecialityFrame(
-                                  context,
-                                  specialityText: "Doctor",
-                                  cardiologyText: "Dr.\tDavid\tQ.\tCochran",
-                                ),
-                                const SizedBox(height: 21),
-                                _buildSpecialityFrame(
-                                  context,
-                                  specialityText: "Speciality",
-                                  cardiologyText: "Cardiology",
-                                ),
-                                const SizedBox(height: 19),
-                                _buildSpecialityFrame(
-                                  context,
-                                  specialityText: "Institution",
-                                  cardiologyText: "Assuta Medical Center",
-                                ),
-                                const SizedBox(height: 19),
-                                _buildReferralFrame(context),
-                                _buildReminderFrame(
-                                  context,
-                                  bellImage:
-                                  "assets/img_calendar_deep_purple_a200_03_16x16.svg",
-                                  setReminderText: "Set date",
-                                ),
-                                _buildReminderFrame(
-                                  context,
-                                  bellImage: "assets/img_bell_deep_purple_a200_03.svg",
-                                  setReminderText: "Set Reminder",
-                                ),
-                                _buildNotesFrame(context),
-                              ],
-                            ),
+                              ),
+                              const SizedBox(height: 17),
+                              _buildSpecialityFrame(
+                                context,
+                                specialityText: "Doctor",
+                                cardiologyText: "Dr.\tDavid\tQ.\tCochran",
+                              ),
+                              const SizedBox(height: 21),
+                              _buildSpecialityFrame(
+                                context,
+                                specialityText: "Speciality",
+                                cardiologyText: "Cardiology",
+                              ),
+                              const SizedBox(height: 19),
+                              _buildSpecialityFrame(
+                                context,
+                                specialityText: "Institution",
+                                cardiologyText: "Assuta Medical Center",
+                              ),
+                              const SizedBox(height: 19),
+                              _buildReferralFrame(context),
+                              _buildReminderFrame(
+                                context,
+                                bellImage:
+                                "assets/img_calendar_deep_purple_a200_03_16x16.svg",
+                                setReminderText: "Set date",
+                              ),
+                              _buildReminderFrame(
+                                context,
+                                bellImage: "assets/img_bell_deep_purple_a200_03.svg",
+                                setReminderText: "Set Reminder",
+                              ),
+                              _buildNotesFrame(context),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ),
-    ),
-          ListTile(
-            title: Visibility(
-              visible: title == "Future Vaccinations",
-              child: Container(
+            )
+          ) :
+          title == "Future Vaccinations" ? ListTile(
+              title: Container(
                 width: double.maxFinite,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 12,
@@ -250,68 +242,122 @@ class RecentordersItemWidget extends StatelessWidget {
                     ],
                   ),
                 ),
+              )
+          ) : title == "Future Lab tests" ? ListTile(
+            title: Container(
+              width: double.maxFinite,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12,
               ),
-            ),
-          ),
-          ListTile(
-            title: Visibility(
-              visible: title == "Future Lab tests",
               child: Container(
-                width: double.maxFinite,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadiusStyle.roundedBorder8,
                 ),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadiusStyle.roundedBorder8,
-                  ),
-                  child: Column(
-                    children: [
-                      Container(
-                        padding: const EdgeInsets.fromLTRB(16, 2, 16, 11),
-                        decoration: AppDecoration.outlineGray100011,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Align(
-                              alignment: Alignment.centerLeft,
-                              child: Text(
-                                "Plan your future *Blood Tests*",
-                                style: CustomTextStyles.titleMedium16,
-                              ),
+                child: Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.fromLTRB(16, 2, 16, 11),
+                      decoration: AppDecoration.outlineGray100011,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              "Plan your future *Blood Tests*",
+                              style: CustomTextStyles.titleMedium16,
                             ),
-                            const SizedBox(height: 20),
-                            _buildBloodTestRow(
-                              context,
-                              typeLabel: "Referred by",
-                              bloodTestLabel: "Dr.\tDavid\tQ.\tCochran",
-                            ),
-                            const SizedBox(height: 21),
-                            _buildBloodTestRow(
-                              context,
-                              typeLabel: "Type",
-                              bloodTestLabel: "Blood Test",
-                            ),
-                            const SizedBox(height: 20),
-                            _buildBloodTestRow(
-                              context,
-                              typeLabel: "Institution",
-                              bloodTestLabel: "Assuta Medical Center",
-                            ),
-                            const SizedBox(height: 19),
-                            _buildReferralRow(context),
-                            _buildDateTimeColumn(context),
-                            _buildReminderColumn(context),
-                            _buildAddNotesColumn(context),
-                          ],
-                        ),
+                          ),
+                          const SizedBox(height: 20),
+                          _buildBloodTestRow(
+                            context,
+                            typeLabel: "Referred by",
+                            bloodTestLabel: "Dr.\tDavid\tQ.\tCochran",
+                          ),
+                          const SizedBox(height: 21),
+                          _buildBloodTestRow(
+                            context,
+                            typeLabel: "Type",
+                            bloodTestLabel: "Blood Test",
+                          ),
+                          const SizedBox(height: 20),
+                          _buildBloodTestRow(
+                            context,
+                            typeLabel: "Institution",
+                            bloodTestLabel: "Assuta Medical Center",
+                          ),
+                          const SizedBox(height: 19),
+                          _buildReferralRow(context),
+                          _buildDateTimeColumn(context),
+                          _buildReminderColumn(context),
+                          _buildAddNotesColumn(context),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
-          ),
+          ) : title == "Surgeries" ? ListTile(
+            title: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadiusStyle.roundedBorder8,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.fromLTRB(16, 0, 16, 11),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Plan your future *Surgery Name*",
+                            style: CustomTextStyles.titleMedium16,
+                          ),
+                        ),
+                        const SizedBox(height: 19),
+                        _buildSurgeryRow(
+                          context,
+                          surgeryText: "Doctor",
+                          cataractText: "Dr.\tDavid\tQ.\tCochran",
+                        ),
+                        const SizedBox(height: 21),
+                        _buildSurgeryRow(
+                          context,
+                          surgeryText: "Surgery",
+                          cataractText: "Cataract",
+                        ),
+                        const SizedBox(height: 20),
+                        _buildSurgeryRow(
+                          context,
+                          surgeryText: "Institution",
+                          cataractText: "NYU",
+                        ),
+                        const SizedBox(height: 18),
+                        _buildReferralRow2(context),
+                        _buildReminderRow2(
+                          context,
+                          bellImage:"assets/img_calendar_deep_purple_a200_03_16x16.svg",
+                          reminderLabel: "Set date",
+                        ),
+                        _buildReminderRow2(
+                          context,
+                          bellImage: "assets/img_bell_deep_purple_a200_03.svg",
+                          reminderLabel: "Set Reminder",
+                        ),
+                        _buildNotesColumn2(context),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ) :
+          Container(),
       ],
     );
 
@@ -968,5 +1014,178 @@ Widget _buildBloodTestRow(
         ),
       ),
     ],
+  );
+}
+
+Widget _buildCalendarRow(BuildContext context) {
+  return Container(
+    padding: const EdgeInsets.fromLTRB(8, 12, 8, 11),
+    decoration: AppDecoration.outlineGray100011,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: [
+        CustomImageView(
+          imagePath: "assets/img_calendar.svg",
+          height: 32,
+          width: 32,
+          margin: const EdgeInsets.only(top: 4),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 8,
+            top: 12,
+            bottom: 6,
+          ),
+          child: Text(
+            "Future Surgeries",
+            style: theme.textTheme.titleSmall,
+          ),
+        ),
+        const Spacer(),
+        Container(
+          width: 24,
+          margin: const EdgeInsets.only(
+            top: 8,
+            bottom: 4,
+          ),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 8,
+            vertical: 3,
+          ),
+          decoration: AppDecoration.fillPinkA.copyWith(
+            borderRadius: BorderRadiusStyle.circleBorder12,
+          ),
+          child: Text(
+            "1",
+            style: CustomTextStyles.bodyMediumOnPrimary,
+          ),
+        ),
+        CustomImageView(
+          imagePath: "assets/img_arrow_down_gray_600_01.svg",
+          height: 16,
+          width: 16,
+          margin: const EdgeInsets.fromLTRB(8, 12, 4, 8),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget _buildReferralRow2(BuildContext context) {
+  return Container(
+    padding: const EdgeInsets.only(
+      top: 14,
+      bottom: 15,
+    ),
+    decoration: AppDecoration.outlineGray10001,
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          "Referral",
+          style: theme.textTheme.titleSmall,
+        ),
+        const Spacer(),
+        Text(
+          "Add file",
+          style: CustomTextStyles.bodyMediumGray60001,
+        ),
+        CustomImageView(
+          imagePath: "assets/img_attach.svg",
+          height: 16,
+          width: 16,
+          margin: const EdgeInsets.only(left: 4),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget _buildNotesColumn2(BuildContext context) {
+  TextEditingController notesController = TextEditingController();
+  return Container(
+    padding: const EdgeInsets.only(
+      top: 14,
+      bottom: 15,
+    ),
+    decoration: AppDecoration.outlineGray10001,
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          "Add Notes",
+          style: theme.textTheme.titleSmall,
+        ),
+        const SizedBox(height: 7),
+        CustomTextFormField(
+          controller: notesController,
+          hintText: "Write your notes here",
+          hintStyle: CustomTextStyles.bodyMediumGray60001,
+          textInputAction: TextInputAction.done,
+          maxLines: 3,
+        ),
+      ],
+    ),
+  );
+}
+
+Widget _buildSurgeryRow(
+    BuildContext context, {
+      required String surgeryText,
+      required String cataractText,
+    }) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: [
+      Padding(
+        padding: const EdgeInsets.only(top: 2),
+        child: Text(
+          surgeryText,
+          style: theme.textTheme.bodyMedium!.copyWith(
+            color: appTheme.blueGray500,
+          ),
+        ),
+      ),
+      Text(
+        cataractText,
+        style: CustomTextStyles.bodyMediumGray90015.copyWith(
+          color: appTheme.gray900,
+        ),
+      ),
+    ],
+  );
+}
+
+Widget _buildReminderRow2(
+    BuildContext context, {
+      required String bellImage,
+      required String reminderLabel,
+    }) {
+  return Container(
+    padding: const EdgeInsets.only(
+      top: 14,
+      bottom: 15,
+    ),
+    decoration: AppDecoration.outlineGray10001,
+    child: Row(
+      children: [
+        CustomImageView(
+          imagePath: bellImage,
+          height: 16,
+          width: 16,
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 8),
+          child: Text(
+            reminderLabel,
+            style: CustomTextStyles.bodyMediumDeeppurpleA20003.copyWith(
+              color: appTheme.deepPurpleA20003,
+            ),
+          ),
+        ),
+      ],
+    ),
   );
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mediboard/routes/modal_actions_screen/modal_actions_screen.dart';
+import 'package:mediboard/routes/profile/widget/modal_action_screen.dart';
 import 'package:mediboard/widgets/appBar/appbar_leading_image.dart';
 import 'package:mediboard/widgets/appBar/appbar_title.dart';
 import 'package:mediboard/widgets/appBar/appbar_trailing_image.dart';
@@ -66,16 +67,20 @@ class ProfileScreen extends StatelessWidget {
         ),
         child: CustomAppBar(
             leadingWidth: 40,
-            leading: AppbarLeadingImage(
-                imagePath: "assets/img_arrow_down_gray_600_01.svg",
-                margin: const EdgeInsets.only(left: 16, top: 18, bottom: 18),
-                onTap: () {
-                  onTapArrowLeft(context);
-                }),
             title: AppbarTitle(
                 text: "Profile", margin: const EdgeInsets.only(left: 24)),
             actions: [
               AppbarTrailingImage(
+                  onTap: (){
+                    showModalBottomSheet(
+                        useSafeArea: true,
+                        isScrollControlled: false,
+                        context: context,
+                        builder: (BuildContext context) {
+                          return  LogoutModalActionScreen();
+                        }
+                    );
+                  },
                   imagePath: "assets/img_arrow_down.svg",
                   margin:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 18))
@@ -523,8 +528,5 @@ class ProfileScreen extends StatelessWidget {
     return CustomBottomAppBar(onChanged: (BottomBarEnum type) {}, context: context,);
   }
 
- 
-  onTapArrowLeft(BuildContext context) {
-    Navigator.pop(context);
-  }
+
 }
