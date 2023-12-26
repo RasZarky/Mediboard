@@ -23,7 +23,7 @@ Home page
 
 For you page
 
-<img src="https://github.com/RasZarky/Mediboard/assets/83512618/5aa5e6d6-6f24-4c43-9d13-bb684c7989ea" width="200" heigth="400">  <img src="https://github.com/RasZarky/Mediboard/assets/83512618/0aa41745-9302-4105-ac21-776d1db89aea" width="200" heigth="400">  <img src="https://github.com/RasZarky/Mediboard/assets/83512618/0082c5f6-c993-46da-bec9-1849d5d2a026" width="200" heigth="400">
+<img src="https://github.com/RasZarky/Mediboard/assets/83512618/5aa5e6d6-6f24-4c43-9d13-bb684c7989ea" width="200" heigth="400">  <img src="https://github.com/RasZarky/Mediboard/assets/83512618/0aa41745-9302-4105-ac21-776d1db89aea" width="200" heigth="400">  <img src="https://github.com/RasZarky/Mediboard/assets/83512618/0082c5f6-c993-46da-bec9-1849d5d2a026" width="200" heigth="400"> <img src="https://github.com/RasZarky/Mediboard/assets/83512618/fb23d006-ac8e-441a-bd0d-cd3ec03fbd4a" width="200" heigth="400"> <img src="https://github.com/RasZarky/Mediboard/assets/83512618/03b2d933-5146-4459-b504-90c670047d36" width="200" heigth="400">
 
 Floating action button modal
 
