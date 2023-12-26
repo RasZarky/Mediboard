@@ -21,6 +21,10 @@ Home page
 
 <img src="https://github.com/RasZarky/Mediboard/assets/83512618/dc547734-d24d-4f4f-8ced-5092e0166b3c" width="200" heigth="400">    <img src="https://github.com/RasZarky/Mediboard/assets/83512618/ccc09df7-d248-4a71-aba1-e8e4213eb612" width="200" heigth="400">     <img src="https://github.com/RasZarky/Mediboard/assets/83512618/25563c00-2066-4836-8257-11b96ca6271a" width="200" heigth="400">
 
+For you page
+
+<img src="https://github.com/RasZarky/Mediboard/assets/83512618/5aa5e6d6-6f24-4c43-9d13-bb684c7989ea" width="200" heigth="400">  <img src="https://github.com/RasZarky/Mediboard/assets/83512618/0aa41745-9302-4105-ac21-776d1db89aea" width="200" heigth="400">
+
 Floating action button modal
 
 <img src="https://github.com/RasZarky/Mediboard/assets/83512618/6ac029d7-e4d7-48ff-889f-2ea2e051023c" width="200" heigth="400">
