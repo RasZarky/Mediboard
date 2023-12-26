@@ -38,6 +38,9 @@ class CustomTextStyles {
   static get bodyMediumDeeppurpleA20003 => theme.textTheme.bodyMedium!.copyWith(
         color: appTheme.deepPurpleA20003,
       );
+  static get bodyMediumGray600 => theme.textTheme.bodyMedium!.copyWith(
+    color: appTheme.gray600,
+  );
   static get bodyMediumGray60001 => theme.textTheme.bodyMedium!.copyWith(
         color: appTheme.gray60001,
       );
@@ -89,10 +92,17 @@ class CustomTextStyles {
         color: appTheme.indigoA200,
         fontSize: 12,
       );
+  static get bodyMediumOnPrimary15 => theme.textTheme.bodyMedium!.copyWith(
+    color: theme.colorScheme.onPrimary.withOpacity(1),
+    fontSize: 15,
+  );
   // Title text style
   static get titleMedium16 => theme.textTheme.titleMedium!.copyWith(
         fontSize: 16,
       );
+  static get titleMedium18 => theme.textTheme.titleMedium!.copyWith(
+    fontSize: 18,
+  );
   static get titleMediumBold => theme.textTheme.titleMedium!.copyWith(
         fontSize: 16,
         fontWeight: FontWeight.w700,
@@ -190,6 +200,10 @@ class CustomTextStyles {
       theme.textTheme.titleSmall!.copyWith(
         color: theme.colorScheme.secondaryContainer,
       );
+  static get titleSmallSemiBold14 => theme.textTheme.titleSmall!.copyWith(
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+  );
 }
 
 extension on TextStyle {

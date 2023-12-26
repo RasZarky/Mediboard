@@ -7,7 +7,10 @@ class Article3ItemWidget extends StatelessWidget {
   final String duration;
   Article3ItemWidget({
     Key? key,
-    this.onTapArticle, required this.imagePath, required this.headline, required this.duration,
+    this.onTapArticle,
+    required this.imagePath,
+    required this.headline,
+    required this.duration,
   }) : super(
           key: key,
         );

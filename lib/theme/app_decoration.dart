@@ -92,6 +92,14 @@ class AppDecoration {
           ),
         ],
       );
+  static BoxDecoration get outlineGray200 => BoxDecoration(
+    border: Border(
+      bottom: BorderSide(
+        color: appTheme.gray200,
+        width: 1,
+      ),
+    ),
+  );
   static BoxDecoration get outlineBlack9001 => BoxDecoration(
         color: theme.colorScheme.onPrimary.withOpacity(1),
         boxShadow: [

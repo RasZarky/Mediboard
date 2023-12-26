@@ -34,6 +34,12 @@ class CustomButtonStyles {
           borderRadius: BorderRadius.circular(4),
         ),
       );
+  static ButtonStyle get fillPrimaryTL16 => ElevatedButton.styleFrom(
+    backgroundColor: theme.colorScheme.primary,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(16),
+    ),
+  );
 
   // Outline button style
   static ButtonStyle get outlineDeepPurpleA => OutlinedButton.styleFrom(
@@ -66,6 +72,16 @@ class CustomButtonStyles {
           borderRadius: BorderRadius.circular(4),
         ),
       );
+  static ButtonStyle get outlineGrayTL16 => OutlinedButton.styleFrom(
+    backgroundColor: theme.colorScheme.onPrimary.withOpacity(1),
+    side: BorderSide(
+      color: appTheme.gray200,
+      width: 1,
+    ),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(16),
+    ),
+  );
   // text button style
   static ButtonStyle get none => ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),

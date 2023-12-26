@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mediboard/theme/theme_helper.dart';
 
 class CustomIconButton extends StatelessWidget {
   const CustomIconButton({
@@ -100,6 +101,10 @@ extension IconButtonStyleHelper on CustomIconButton {
         color: Colors.grey,
         borderRadius: BorderRadius.circular(15),
       );
+  static BoxDecoration get fillDeepPurpleTL8 => BoxDecoration(
+    color: appTheme.deepPurple50,
+    borderRadius: BorderRadius.circular(8),
+  );
   static BoxDecoration get outlineBlack => BoxDecoration(
         boxShadow: [
           BoxShadow(

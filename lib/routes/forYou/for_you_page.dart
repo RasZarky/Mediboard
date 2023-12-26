@@ -1,4 +1,6 @@
 import 'package:mediboard/routes/forYou/article_tab_container_screen.dart';
+import 'package:mediboard/routes/forYou/my_bookmarks_screen.dart';
+import 'package:mediboard/routes/forYou/subscription/subscription_page.dart';
 import 'package:mediboard/routes/forYou/widgets/article3_item_widget.dart';
 import 'package:mediboard/routes/forYou/widgets/article4_item_widget.dart';
 import 'package:mediboard/routes/forYou/widgets/chips6_item_widget.dart';
@@ -263,13 +265,12 @@ class ForYouPageState extends State<ForYouPage> with TickerProviderStateMixin {
 
   onTapLayers(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => const ArticleTabContainerScreen()));
+        builder: (context) => const SubscribtionScreen()));
   }
 
-  /// Navigates to the myBookmarksScreen when the action is triggered.
   onTapImgBookmark(BuildContext context) {
     Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => const ArticleTabContainerScreen()));
+        builder: (context) => const MyBookmarksScreen()));
   }
 }
 
@@ -292,10 +293,4 @@ final List<GridItemData> gridItems = [
   GridItemData(imagePath: "assets/doc.png", headline: "Understanding the Latest Research on Alzheimer's Disease", duration: "12 min read" ),
   GridItemData(imagePath: "assets/img_rectangle_175_3.png", headline: "How Artificial Intelligence is Revolutionizing Healthcare", duration: "1 min read" ),
   GridItemData(imagePath: "assets/meditate.png", headline: "The Power of Meditation for Managing Chronic Pain", duration: "1 min read" ),
-
-
-
-
-
-
 ];
