@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:mediboard/widgets/custom_image_view.dart';
 
 class Article3ItemWidget extends StatelessWidget {
+  final String imagePath;
+  final String headline;
+  final String duration;
   Article3ItemWidget({
     Key? key,
-    this.onTapArticle,
+    this.onTapArticle, required this.imagePath, required this.headline, required this.duration,
   }) : super(
           key: key,
         );
@@ -21,7 +24,7 @@ class Article3ItemWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomImageView(
-            imagePath: "assets/img_rectangle_175.png",
+            imagePath: imagePath,
             height: 205,
             width: 171,
             radius: BorderRadius.circular(
@@ -29,10 +32,10 @@ class Article3ItemWidget extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 10),
-          const SizedBox(
+           SizedBox(
             width: 156,
             child: Text(
-              "Advancements in Gene Therapy for Inherited Diseases",
+              headline,
               maxLines: 3,
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
@@ -43,8 +46,8 @@ class Article3ItemWidget extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 2),
-          const Text(
-            "1 min read",
+          Text(
+            duration,
             style: TextStyle(
               color: Color(0XFF475568)
             ),

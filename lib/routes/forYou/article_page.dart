@@ -166,7 +166,7 @@ class ArticlePageState extends State<ArticlePage>
 
   Widget _buildArticleSummary(BuildContext context) {
     return SizedBox(
-      height: 366,
+      height: 420,
       width: double.maxFinite,
       child: Stack(
         alignment: Alignment.bottomCenter,
@@ -242,15 +242,17 @@ class ArticlePageState extends State<ArticlePage>
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const SizedBox(
-                    width: 355,
-                    child: Text(
-                      "Most people are aware of the importance of a healthy gut for physical health, but the link between gut health and mental health may come as a surprise. Recent research has shown that there is a strong connection between the gut microbiome, the collection of bacteria and other microorganisms that live in the gut, and mental health.\n\nThe gut microbiome is known to play a key role in digestion and immune system function. However, studies have also found that it can influence the brain and nervous system, affecting mood, behavior, and even cognitive function.\n\nOne way in which the gut microbiome may affect mental health is through the production of neurotransmitters, the chemical messengers that allow nerve cells to communicate with each other. Many neurotransmitters, including serotonin and dopamine, are produced in the gut as well as the brain. Imbalances in the gut microbiome can lead to disruptions in the production of these neurotransmitters, which can have a negative impact \non mental health.\n\nAdditionally, research has shown that the gut microbiome can influence the body's stress response. Studies in animals have found that disruptions to the gut microbiome can lead to increased levels of stress hormones, such as cortisol. This can in turn have negative effects on mental health, leading to anxiety and depression.\n\nIt is not just the gut microbiome that is involved in the gut-brain axis, the bi-directional communication pathway between the gut and the brain. The gut is also connected to the brain via the vagus nerve, which carries information between the two. This connection has been shown to be important in regulating mood and behavior, with research suggesting that stimulating the vagus nerve can have antidepressant effects.\n\nSo, what can be done to improve gut health and, in turn, support mental health? One important factor is diet. A diet high in fiber and rich in whole, unprocessed foods can help to support a healthy gut microbiome. Fermented foods, such as yogurt, kefir, and kimchi, can also be beneficial, as they contain live bacteria that can help to colonize the gut.\n\nProbiotic supplements can also be useful for improving gut health, particularly after a course of antibiotics or during times of stress. However, it is important to choose a high-quality supplement that contains a variety of strains of beneficial bacteria.\nIn addition to diet and supplements, other lifestyle factors can also have an impact on gut health and mental health. Regular exercise, getting enough sleep, and managing stress can all help to support a healthy gut microbiome and reduce the risk of mental health issues.\n\nIn conclusion, the link between gut health and mental health is a complex and fascinating area of research. By taking steps to support gut health, we may be able to improve not just our physical health, but also our mental wellbeing.",
-                      maxLines: 8,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 15,
-                        height: 1.14,
+                  const Expanded(
+                    child: SizedBox(
+                      width: 355,
+                      child: Text(
+                        "Most people are aware of the importance of a healthy gut for physical health, but the link between gut health and mental health may come as a surprise. Recent research has shown that there is a strong connection between the gut microbiome, the collection of bacteria and other microorganisms that live in the gut, and mental health.\n\nThe gut microbiome is known to play a key role in digestion and immune system function. However, studies have also found that it can influence the brain and nervous system, affecting mood, behavior, and even cognitive function.\n\nOne way in which the gut microbiome may affect mental health is through the production of neurotransmitters, the chemical messengers that allow nerve cells to communicate with each other. Many neurotransmitters, including serotonin and dopamine, are produced in the gut as well as the brain. Imbalances in the gut microbiome can lead to disruptions in the production of these neurotransmitters, which can have a negative impact \non mental health.\n\nAdditionally, research has shown that the gut microbiome can influence the body's stress response. Studies in animals have found that disruptions to the gut microbiome can lead to increased levels of stress hormones, such as cortisol. This can in turn have negative effects on mental health, leading to anxiety and depression.\n\nIt is not just the gut microbiome that is involved in the gut-brain axis, the bi-directional communication pathway between the gut and the brain. The gut is also connected to the brain via the vagus nerve, which carries information between the two. This connection has been shown to be important in regulating mood and behavior, with research suggesting that stimulating the vagus nerve can have antidepressant effects.\n\nSo, what can be done to improve gut health and, in turn, support mental health? One important factor is diet. A diet high in fiber and rich in whole, unprocessed foods can help to support a healthy gut microbiome. Fermented foods, such as yogurt, kefir, and kimchi, can also be beneficial, as they contain live bacteria that can help to colonize the gut.\n\nProbiotic supplements can also be useful for improving gut health, particularly after a course of antibiotics or during times of stress. However, it is important to choose a high-quality supplement that contains a variety of strains of beneficial bacteria.\nIn addition to diet and supplements, other lifestyle factors can also have an impact on gut health and mental health. Regular exercise, getting enough sleep, and managing stress can all help to support a healthy gut microbiome and reduce the risk of mental health issues.\n\nIn conclusion, the link between gut health and mental health is a complex and fascinating area of research. By taking steps to support gut health, we may be able to improve not just our physical health, but also our mental wellbeing.",
+                        maxLines: 8,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 15,
+                          height: 1.14,
+                        ),
                       ),
                     ),
                   ),
@@ -261,7 +263,7 @@ class ArticlePageState extends State<ArticlePage>
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              height: 85,
+              height: 65,
               width: double.maxFinite,
               margin: const EdgeInsets.only(bottom: 2),
               decoration: BoxDecoration(

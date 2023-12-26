@@ -227,11 +227,15 @@ class ForYouPageState extends State<ForYouPage> with TickerProviderStateMixin {
                     mainAxisSpacing: 24,
                     crossAxisSpacing: 24),
                 physics: const BouncingScrollPhysics(),
-                itemCount: 8,
+                itemCount: gridItems.length,
                 itemBuilder: (context, index) {
+                  final itemData = gridItems[index];
                   return Article3ItemWidget(onTapArticle: () {
                     onTapArticle(context);
-                  });
+                  },
+                    imagePath: itemData.imagePath,
+                    headline: itemData.headline,
+                    duration: itemData.duration,);
                 }),
             const SizedBox(height: 35),
             _buildMedicalFields(context),
@@ -268,3 +272,30 @@ class ForYouPageState extends State<ForYouPage> with TickerProviderStateMixin {
         builder: (context) => const ArticleTabContainerScreen()));
   }
 }
+
+class GridItemData {
+  final String imagePath;
+  final String headline;
+  final String duration;
+
+  GridItemData( {
+    required this.imagePath,
+    required this.headline,
+    required this.duration,
+  });
+}
+
+final List<GridItemData> gridItems = [
+  GridItemData(imagePath: "assets/img_rectangle_175.png", headline: "Advancements in Gene Therapy for Inherited Diseases", duration: "1 min read" ),
+  GridItemData(imagePath: "assets/Rectangle 175.png", headline: "The Surprising Link Between Gut Health and Mental Health", duration: "3 min read" ),
+  GridItemData(imagePath: "assets/excersice.png", headline: "The Benefits of Regular Exercise for Heart Health", duration: "1 min read" ),
+  GridItemData(imagePath: "assets/doc.png", headline: "Understanding the Latest Research on Alzheimer's Disease", duration: "12 min read" ),
+  GridItemData(imagePath: "assets/img_rectangle_175_3.png", headline: "How Artificial Intelligence is Revolutionizing Healthcare", duration: "1 min read" ),
+  GridItemData(imagePath: "assets/meditate.png", headline: "The Power of Meditation for Managing Chronic Pain", duration: "1 min read" ),
+
+
+
+
+
+
+];

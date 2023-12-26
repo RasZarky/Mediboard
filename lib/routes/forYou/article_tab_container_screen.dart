@@ -3,6 +3,7 @@ import 'package:mediboard/routes/forYou/article_page.dart';
 import 'package:mediboard/widgets/appBar/appbar_leading_iconbutton_one.dart';
 import 'package:mediboard/widgets/appBar/appbar_trailing_iconbutton_three.dart';
 import 'package:mediboard/widgets/appBar/custom_app_bar.dart';
+import 'package:mediboard/widgets/custom_image_view.dart';
 
 class ArticleTabContainerScreen extends StatefulWidget {
   const ArticleTabContainerScreen({Key? key})
@@ -88,7 +89,10 @@ class ArticleTabContainerScreenState extends State<ArticleTabContainerScreen>
       height: 243,
       leadingWidth: 44,
       leading: AppbarLeadingIconbuttonOne(
-        imagePath: "assets/img_chevron_left.svg",
+        onTap: (){
+          Navigator.pop(context);
+        },
+        imagePath: "assets/chevron-left.png",
         margin: const EdgeInsets.only(
           left: 12,
           top: 8,
@@ -96,22 +100,55 @@ class ArticleTabContainerScreenState extends State<ArticleTabContainerScreen>
         ),
       ),
       actions: [
-        AppbarTrailingIconbuttonThree(
-          imagePath: "assets/img_bookmark_blue_gray_700_01.svg",
-          margin: const EdgeInsets.only(
-            left: 12,
-            top: 8,
-            right: 203,
+        Align(
+          alignment: Alignment.topLeft,
+          child: Row(
+            children: [
+              AppbarTrailingIconbuttonThree(
+                imagePath: "assets/img_bookmark_blue_gray_700_01.svg",
+                margin: const EdgeInsets.only(
+                  left: 12,
+                  top: 8,
+                ),
+              ),
+
+              Container(
+                  height: 30.309998,
+                  width: 27,
+                  margin: const EdgeInsets.only(left: 24, top: 11, right: 24),
+                  child: Stack(alignment: Alignment.topRight, children: [
+                    CustomImageView(
+                        imagePath: "assets/img_more_vertical_gray_600_32x32.svg",
+                        height: 24,
+                        width: 24,
+                        alignment: Alignment.bottomLeft,
+                        margin: const EdgeInsets.only(top: 6, right: 3),
+                        onTap: () {
+
+                        }),
+                    Align(
+                        alignment: Alignment.topRight,
+                        child: Container(
+                          height: 8,
+                          width: 8,
+                          margin:
+                          const EdgeInsets.only(left: 19, bottom: 22),
+                          // decoration: BoxDecoration(
+                          //     color: const Color(0XFF22C55E),
+                          //     borderRadius: BorderRadius.circular(4),
+                          //     border: Border.all(
+                          //         color: const Color(0XFF4C1D95)
+                          //             .withOpacity(1),
+                          //         width: 2,
+                          //         strokeAlign:
+                          //             BorderSide.strokeAlignOutside)
+                          // )
+                        ))
+                  ])),
+            ],
           ),
         ),
-        AppbarTrailingIconbuttonThree(
-          imagePath: "assets/img_more_vertical_gray_600_32x32.svg",
-          margin: const EdgeInsets.only(
-            left: 4,
-            top: 8,
-            right: 215,
-          ),
-        ),
+
       ],
       styleType: Style.bgGradientblack,
     );
