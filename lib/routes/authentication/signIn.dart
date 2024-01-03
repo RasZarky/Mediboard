@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:page_transition/page_transition.dart';
 import '../../widgets/customTextField.dart';
 import '../home/home.dart';
 
@@ -10,18 +10,18 @@ class SignIn extends StatefulWidget {
   State<SignIn> createState() => _SignInState();
 }
 
-class _SignInState extends State<SignIn> {
+class _SignInState extends State<SignIn> with SingleTickerProviderStateMixin {
 
   final _emailTextEditingController = TextEditingController();
   final _passwordTextEditingController = TextEditingController();
   late String email;
   late String password;
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-
         child: Column(
           children: [
 
@@ -159,7 +159,10 @@ class _SignInState extends State<SignIn> {
                     ),
 
                     onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(builder: (context) => const Home()));
+
+                      Navigator.pushReplacement(context,
+                          PageTransition(type: PageTransitionType.leftToRight, duration: const Duration(seconds: 2), child: const Home())
+                      );
                     }
                   ),
                 ),

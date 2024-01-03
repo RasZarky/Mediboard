@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:circular_chart_flutter/circular_chart_flutter.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:flutter_xlider/flutter_xlider.dart';
 import 'package:mediboard/routes/home/widgets/activemedications_item_widget.dart';
 import 'package:mediboard/routes/home/widgets/iconitem1_item_widget.dart';
@@ -22,6 +24,7 @@ class Home extends StatefulWidget {
 }
 
 int sliderIndex = 1;
+int touchedIndex = -1;
 final GlobalKey<AnimatedCircularChartState> _chartKey = GlobalKey<AnimatedCircularChartState>();
 
 class _HomeState extends State<Home> {
@@ -203,47 +206,144 @@ class _HomeState extends State<Home> {
 
           const SizedBox(height: 38),
 
-          AnimatedCircularChart(
-            key: _chartKey,
-            size: const Size(300.0, 300.0),
-            initialChartData: const <CircularStackEntry>[
-              CircularStackEntry(
-                <CircularSegmentEntry>[
-                  CircularSegmentEntry(
-                    33.33,
-                    Color(0XFF22D3EE),
-                    rankKey: 'completed',
-                  ),
-                  CircularSegmentEntry(
-                    33.33,
-                    Color(0XFFEAB308),
-                    rankKey: 'remaining',
-                  ),
-                  CircularSegmentEntry(
-                    33.33,
-                    Color(0XFFFB7185),
-                    rankKey: 'remaining',
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: AspectRatio(
+                      aspectRatio: 1,
+                      child: PieChart(
+                        PieChartData(
+                          pieTouchData: PieTouchData(
+                            touchCallback: (FlTouchEvent event, pieTouchResponse) {
+                              setState(() {
+                                if (!event.isInterestedForInteractions ||
+                                    pieTouchResponse == null ||
+                                    pieTouchResponse.touchedSection == null) {
+                                  touchedIndex = -1;
+                                  return;
+                                }
+                                touchedIndex = pieTouchResponse
+                                    .touchedSection!.touchedSectionIndex;
+                              });
+                            },
+                          ),
+                          borderData: FlBorderData(
+                            show: false,
+                          ),
+                          sectionsSpace: 5,
+                          centerSpaceRadius: 130,
+                          sections: showingSections(),
+                        ),
+                      ),
+                    ),
                   ),
                 ],
-                rankKey: 'progress',
               ),
+              const Align(
+                alignment: Alignment.center,
+                child: Column(
+                  children: [
+                    Text("Upcoming",
+                    style: TextStyle(
+                      fontSize: 20
+                    ),),
+                    Text("5 Activities",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold
+                    ),)
+                  ],
+                ),
+              )
             ],
-            // holeRadius: 60.0,
-            edgeStyle: SegmentEdgeStyle.round,
-            chartType: CircularChartType.Radial,
-            percentageValues: true,
-            holeLabel: 'Upcoming \n 3 activities',
-            labelStyle: TextStyle(
-              color: Colors.blueGrey[600],
-              fontWeight: FontWeight.bold,
-              fontSize: 24.0,
-            ),
           )
+          
+
         ],
       ),
     );
   }
 
+  List<PieChartSectionData> showingSections() {
+    return List.generate(5, (i) {
+      final isTouched = i == touchedIndex;
+      final fontSize = isTouched ? 25.0 : 16.0;
+      final radius = isTouched ? 60.0 : 30.0;
+      const shadows = [Shadow(color: Colors.black, blurRadius: 2)];
+      switch (i) {
+        case 0:
+          return PieChartSectionData(
+            color: Color(0xFF2196F3),
+            value: 20,
+            title: '',
+            radius: radius,
+            titleStyle: TextStyle(
+              fontSize: fontSize,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              shadows: shadows,
+            ),
+          );
+        case 1:
+          return PieChartSectionData(
+            color: Color(0xFFFFC300),
+            value: 30,
+            title: '',
+            radius: radius,
+            titleStyle: TextStyle(
+              fontSize: fontSize,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              shadows: shadows,
+            ),
+          );
+        case 2:
+          return PieChartSectionData(
+            color: Color(0xFF6E1BFF),
+            value: 15,
+            title: '',
+            radius: radius,
+            titleStyle: TextStyle(
+              fontSize: fontSize,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              shadows: shadows,
+            ),
+          );
+        case 3:
+          return PieChartSectionData(
+            color: Colors.purple,
+            value: 15,
+            title: '',
+            radius: radius,
+            titleStyle: TextStyle(
+              fontSize: fontSize,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              shadows: shadows,
+            ),
+          );
+        case 4:
+          return PieChartSectionData(
+            color: Color(0xFFFF3AF2),
+            value: 20,
+            title: '',
+            radius: radius,
+            titleStyle: TextStyle(
+              fontSize: fontSize,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              shadows: shadows,
+            ),
+          );
+        default:
+          throw Error();
+      }
+    });
+  }
 }
 
 
