@@ -19,7 +19,7 @@ Sign In page
 
 Home page
 
-<img src="https://github.com/RasZarky/Mediboard/assets/83512618/dc547734-d24d-4f4f-8ced-5092e0166b3c" width="200" heigth="400">    <img src="https://github.com/RasZarky/Mediboard/assets/83512618/ccc09df7-d248-4a71-aba1-e8e4213eb612" width="200" heigth="400">     <img src="https://github.com/RasZarky/Mediboard/assets/83512618/25563c00-2066-4836-8257-11b96ca6271a" width="200" heigth="400">
+<img src="https://github.com/RasZarky/Mediboard/assets/83512618/ef847641-2787-4a32-b30f-eaeee2dd460c" width="200" heigth="400">    <img src="https://github.com/RasZarky/Mediboard/assets/83512618/ccc09df7-d248-4a71-aba1-e8e4213eb612" width="200" heigth="400">     <img src="https://github.com/RasZarky/Mediboard/assets/83512618/25563c00-2066-4836-8257-11b96ca6271a" width="200" heigth="400">
 
 For you page
 
