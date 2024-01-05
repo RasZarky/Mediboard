@@ -4,7 +4,16 @@ import '../../../widgets/custom_image_view.dart';
 
 // ignore: must_be_immutable
 class MedicationlistItemWidget extends StatelessWidget {
-  const MedicationlistItemWidget({Key? key})
+  final String name;
+  final String time;
+  final String imagePath1;
+  final String imagePath2;
+  final String imagePath3;
+  const MedicationlistItemWidget({Key? key, required this.name,
+    required this.time,
+    required this.imagePath1,
+    required this.imagePath2,
+    required this.imagePath3})
       : super(
           key: key,
         );
@@ -21,8 +30,8 @@ class MedicationlistItemWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "ENTRESTO, 100 mg",
+          Text(
+            name,
             style: TextStyle(
               color: Colors.grey,
               fontSize: 15,
@@ -30,8 +39,8 @@ class MedicationlistItemWidget extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 4),
-          const Text(
-            "2/day",
+          Text(
+            time,
             style: TextStyle(
               fontSize: 12,
             ),
@@ -44,11 +53,11 @@ class MedicationlistItemWidget extends StatelessWidget {
                 width: 32,
                 padding: const EdgeInsets.all(8),
                 child: CustomImageView(
-                  imagePath: "assets/img_settings_deep_purple_a200_03.svg",
+                  imagePath: imagePath1,
                 ),
               ),
               CustomImageView(
-                imagePath: "assets/img_sun.svg",
+                imagePath: imagePath2,
                 height: 16,
                 width: 16,
                 margin: const EdgeInsets.only(
@@ -64,7 +73,7 @@ class MedicationlistItemWidget extends StatelessWidget {
                   width: 32,
                   padding: const EdgeInsets.all(8),
                   child: CustomImageView(
-                    imagePath: "assets/img_moon.svg",
+                    imagePath: imagePath3,
                   ),
                 ),
               ),

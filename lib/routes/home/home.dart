@@ -1,8 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:circular_chart_flutter/circular_chart_flutter.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_xlider/flutter_xlider.dart';
 import 'package:mediboard/routes/home/widgets/activemedications_item_widget.dart';
 import 'package:mediboard/routes/home/widgets/iconitem1_item_widget.dart';
@@ -10,7 +8,6 @@ import 'package:mediboard/routes/home/widgets/recentorders_item_widget.dart';
 import 'package:mediboard/routes/home/widgets/userprofile3_item_widget.dart';
 import 'package:mediboard/routes/modal_actions_screen/modal_actions_screen.dart';
 import 'package:mediboard/routes/notifications/notifications_screen.dart';
-import 'package:mediboard/routes/visits_page/visits_page.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../widgets/custom_bottom_app_bar.dart';
 import '../../widgets/custom_floating_button.dart';
@@ -25,7 +22,6 @@ class Home extends StatefulWidget {
 
 int sliderIndex = 1;
 int touchedIndex = -1;
-final GlobalKey<AnimatedCircularChartState> _chartKey = GlobalKey<AnimatedCircularChartState>();
 
 class _HomeState extends State<Home> {
 
@@ -92,13 +88,19 @@ class _HomeState extends State<Home> {
                       const SizedBox(height: 24),
                       _buildRecentOrders(context),
                       const SizedBox(height: 48),
-                      const Text(
-                        textAlign: TextAlign.left,
-                        "Active medications",
-                        style: TextStyle(
-                          color: Color(0XFF111826),
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 15.0),
+                          child: Text(
+                            textAlign: TextAlign.left,
+                            "Active medications",
+                            style: TextStyle(
+                              color: Color(0XFF111826),
+                              fontSize: 15,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
                         ),
                       ),
                       const SizedBox(height: 8),
@@ -469,9 +471,9 @@ Widget _buildActiveMedications(BuildContext context) {
 
 Widget _buildTrackingMeasures(BuildContext context) {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 12),
+    padding: const EdgeInsets.only(left: 12),
     child: Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         const Text(
           "Tracking Measures ",
